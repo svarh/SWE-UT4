@@ -5,7 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="@color/background">
+
+    <View
+        android:id="@+id/backgroundCircle1"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:background="@drawable/circle1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-200dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="-35dp"
+        />
+    <View
+        android:id="@+id/backgroundCircle2"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:background="@drawable/circle2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-80dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="-200dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,10 +54,25 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/imgShield"
         android:src="@drawable/shield"
         android:layout_below="@id/txtViewSmallTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"/>
+
+    <Button
+        android:layout_width="143dp"
+        android:layout_height="35dp"
+        android:id="@+id/btnVisitor"
+        android:layout_below="@id/imgShield"
+        android:text="Visitor"
+        android:background="@drawable/my_button"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+
+        />
+        
+
 
 
 
