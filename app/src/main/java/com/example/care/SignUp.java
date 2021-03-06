@@ -40,6 +40,7 @@ public class SignUp extends AppCompatActivity {
                 if(guestCheck.isChecked()){
                     businessCheck.setChecked(false);
                 }
+                emailInput.setHint("Email");
                 nameInput.setVisibility(View.VISIBLE);
                 nameInput.setHint("Name");
                 phoneInput.setVisibility(View.VISIBLE);

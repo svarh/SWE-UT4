@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CARE</string>
+    <string name="guest">Guest</string>
+    <string name="business">Business</string>
+    <string name="create_your_account">Create Your Account</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="company_name">Company Name</string>
 </resources>
