@@ -71,9 +71,9 @@
         <Button
             android:layout_width="143dp"
             android:layout_height="35dp"
-            android:id="@+id/btnVisitor"
+            android:id="@+id/btnGuest"
 
-            android:text="Visitor"
+            android:text="Guest"
             android:background="@drawable/my_button"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -83,11 +83,11 @@
         <Button
             android:layout_width="143dp"
             android:layout_height="35dp"
-            android:id="@+id/btnFrontDesk"
-            android:layout_toRightOf="@+id/btnVisitor"
+            android:id="@+id/btnBusiness"
+            android:layout_toRightOf="@+id/btnGuest"
             android:layout_marginLeft="50dp"
 
-            android:text="Front Desk"
+            android:text="Business"
             android:background="@drawable/my_button"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -124,6 +124,7 @@
         android:textColorHint="@color/white"
         android:backgroundTint="@color/white"/>
 
+
     <Button
         android:layout_width="180dp"
         android:layout_height="35dp"
@@ -152,7 +153,7 @@
 
 
 
-        
+
 
 
 
