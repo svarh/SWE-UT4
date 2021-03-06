@@ -3,6 +3,7 @@ package com.example.care;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -22,6 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String password = editTxtPassword.getText().toString();
                 this.userModel.login(username, password);
                 break;
+            case R.id.btnSignUp:
+                signUpActivity();
+                break;
         }
     }
 
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Initialize buttons listener
         Button btnLogin = findViewById(R.id.btnLogIn);
         btnLogin.setOnClickListener(this);
+        Button btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignUp.setOnClickListener(this);
 
     }
 
@@ -53,6 +59,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // This method creates Toast to send notification
     public static void makeToast(String str) {
         Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
+    }
+
+    private void signUpActivity(){
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
     }
 
 }
