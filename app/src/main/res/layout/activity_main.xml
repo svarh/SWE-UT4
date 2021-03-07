@@ -66,98 +66,34 @@
         android:id="@+id/btnGroupSelect"
         android:layout_below="@id/imgShield"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp">
-
-        <Button
-            android:layout_width="143dp"
-            android:layout_height="35dp"
-            android:id="@+id/btnGuest"
-
-            android:text="@string/guest"
-            android:background="@drawable/my_button"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-
-            />
-
-        <Button
-            android:layout_width="143dp"
-            android:layout_height="35dp"
-            android:id="@+id/btnBusiness"
-            android:layout_toRightOf="@+id/btnGuest"
-            android:layout_marginLeft="50dp"
-
-            android:text="@string/business"
-            android:background="@drawable/my_button"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-
-            />
-
-    </RelativeLayout>
-
-    <EditText
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTxtEmail"
-        android:layout_below="@+id/btnGroupSelect"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
-        android:hint="@string/email"
-        android:inputType="text"
-        android:maxLines="1"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
-        />
-
-    <EditText
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTxtPassword"
-        android:layout_below="@+id/editTxtEmail"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"/>
+        android:layout_marginTop="32dp"/>
 
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="35dp"
         android:id="@+id/btnLogIn"
-        android:layout_below="@+id/editTxtPassword"
-        android:layout_marginTop="55dp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/sign_in_as_guest"
-        android:background="@drawable/my_button"
-        android:textColor="@color/white"
-        android:textAlignment="center" />
-
-    <Button
         android:layout_width="180dp"
         android:layout_height="35dp"
-        android:id="@+id/btnSignUp"
-        android:layout_below="@+id/btnLogIn"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/imgShield"
         android:layout_centerHorizontal="true"
-        android:text="@string/sign_up"
+        android:layout_marginTop="108dp"
         android:background="@drawable/my_button"
+        android:text="@string/login"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textAlignment="center" />
+        tools:text="Login" />
 
-
-
-
-
-
-
-
-
-
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/btnLogIn"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/my_button"
+        android:text="@string/sign_up"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
 
 
 </RelativeLayout>
