@@ -13,7 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 public class SignUp extends AppCompatActivity {
 
     EditText emailInput;
@@ -32,7 +31,6 @@ public class SignUp extends AppCompatActivity {
 
 
     static Activity thisActivity = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
