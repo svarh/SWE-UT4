@@ -49,9 +49,7 @@ public class SignUp extends AppCompatActivity {
                     businessCheck.setChecked(false);
                 }
                 emailInput.setHint("Email");
-                nameInput.setVisibility(View.VISIBLE);
                 nameInput.setHint("Name");
-                phoneInput.setVisibility(View.VISIBLE);
                 companyNameInput.setVisibility(View.INVISIBLE);
             }
         });
@@ -62,10 +60,8 @@ public class SignUp extends AppCompatActivity {
                 if(businessCheck.isChecked()){
                     guestCheck.setChecked(false);
                 }
-                nameInput.setVisibility(View.VISIBLE);
                 nameInput.setHint("Receptionist Name");
                 emailInput.setHint("Company Email");
-                phoneInput.setVisibility(View.VISIBLE);
                 companyNameInput.setVisibility(View.VISIBLE);
             }
         });
@@ -78,31 +74,24 @@ public class SignUp extends AppCompatActivity {
                     makeToast("Please select an account type");
                 }
                 else if(guestCheck.isChecked()){
-                    email = emailInput.getText().toString();
-                    password = passwordInput.getText().toString();
-                    name = nameInput.getText().toString();
-                    phoneNumb = phoneInput.getText().toString();
-                    if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
-                        makeToast("Please fill in all available fields");
+                    if(checkInputs("Guest")){
+                        if(checkValidity(password, email, phoneNumb)) {
+                            makeToast("Account Created!");
+                        }
                     }
                 }
                 else if(businessCheck.isChecked()){
-                    email = emailInput.getText().toString();
-                    password = passwordInput.getText().toString();
-                    name = nameInput.getText().toString();
-                    companyName = companyNameInput.getText().toString();
-                    phoneNumb = phoneInput.getText().toString();
-                    if(email.length() == 0 | password.length() == 0 | name.length() == 0 | companyName.length() == 0 | phoneNumb.length() == 0){
-                        makeToast("Please fill in all available fields");
-                    }
-                    else if(checkValidity(password, email, phoneNumb)){
-                        makeToast("Account Created!");
+                    if(checkInputs("Business")){
+                        if(checkValidity(password, email, phoneNumb)) {
+                            makeToast("Account Created!");
+                        }
                     }
                 }
             }
         });
     }
 
+    // This method sets up the UI
     private void setUI(){
         emailInput = findViewById(R.id.editTextEmail);
         passwordInput = findViewById(R.id.editTextPassword);
@@ -115,11 +104,35 @@ public class SignUp extends AppCompatActivity {
         signUpButton = findViewById(R.id.buttonSignUp);
     }
 
+    // This method collects all inputs to it's corresponding variables and checks if they all have been filled in
+    private boolean checkInputs(String type){
+        email = emailInput.getText().toString();
+        password = passwordInput.getText().toString();
+        name = nameInput.getText().toString();
+        companyName = companyNameInput.getText().toString();
+        phoneNumb = phoneInput.getText().toString();
+        if(type.equals("Guest")){
+            if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
+                makeToast("Please fill in all available fields");
+                return false;
+            }
+        }
+        else if(type.equals("Business")){
+            if(email.length() == 0 | password.length() == 0 | name.length() == 0 | companyName.length() == 0 | phoneNumb.length() == 0){
+                makeToast("Please fill in all available fields");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // This method checks if the email input is a valid email
     private boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email)
                 .matches();
     }
 
+    // This method checks if the inputs for password, email, and phone number are valid
     private boolean checkValidity(String password, String email, String phoneNumb){
         if (password.length() < 6 | password.length() > 12) {
             makeToast("Password must be between 6 - 12 characters");
