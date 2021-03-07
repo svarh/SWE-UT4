@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -68,19 +67,25 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hideKeyboard(v);
+
+                email = emailInput.getText().toString();
+                password = passwordInput.getText().toString();
+                name = nameInput.getText().toString();
+                phoneNumb = phoneInput.getText().toString();
+
                 if(!guestCheck.isChecked() & !businessCheck.isChecked()){
                     makeToast("Please select an account type");
                 }
                 else if(guestCheck.isChecked()){
-                    if(checkInputs("Guest")){
-                        if(checkValidity(password, email, phoneNumb)) {
+                    if(checkInputs()){
+                        if(checkValidity()) {
                             makeToast("Account Created!");
                         }
                     }
                 }
                 else if(businessCheck.isChecked()){
-                    if(checkInputs("Business")){
-                        if(checkValidity(password, email, phoneNumb)) {
+                    if(checkInputs()){
+                        if(checkValidity()) {
                             makeToast("Account Created!");
                         }
                     }
@@ -98,15 +103,11 @@ public class SignUp extends AppCompatActivity {
         phoneInput = findViewById(R.id.editTextPhoneNumb);
         guestCheck = findViewById(R.id.checkBoxGuest);
         businessCheck = findViewById(R.id.checkBoxBusiness);
-        signUpButton = findViewById(R.id.buttonSignUp);
+        signUpButton = findViewById(R.id.buttonLogin);
     }
 
     // This method collects all inputs to it's corresponding variables and checks if they all have been filled in
-    private boolean checkInputs(String type){
-        email = emailInput.getText().toString();
-        password = passwordInput.getText().toString();
-        name = nameInput.getText().toString();
-        phoneNumb = phoneInput.getText().toString();
+    private boolean checkInputs(){
         if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
             makeToast("Please fill in all available fields");
             return false;
@@ -121,16 +122,16 @@ public class SignUp extends AppCompatActivity {
     }
 
     // This method checks if the inputs for password, email, and phone number are valid
-    private boolean checkValidity(String password, String email, String phoneNumb){
+    private boolean checkValidity(){
+        if (!isEmailValid(email)) {
+            makeToast("Email is invalid");
+            return false;
+        }
         if (password.length() < 6 | password.length() > 12) {
             makeToast("Password must be between 6 - 12 characters");
             return false;
         } else if (!password.equals(confirmPasswordInput.getText().toString())) {
             makeToast("Passwords do not match");
-            return false;
-        }
-        if (!isEmailValid(email)) {
-            makeToast("Email is invalid");
             return false;
         }
         if (phoneNumb.length() != 10) {
