@@ -11,6 +11,7 @@ android {
         applicationId "com.example.care"
         minSdkVersion 19
         targetSdkVersion 30
+        multiDexEnabled true //added to avoid the error "Cannot fit requested classes in a single dex file"
         versionCode 1
         versionName "1.0"
 
