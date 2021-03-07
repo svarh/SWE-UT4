@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -19,7 +20,6 @@ public class SignUp extends AppCompatActivity {
     EditText confirmPasswordInput;
     EditText nameInput;
     EditText phoneInput;
-    EditText companyNameInput;
     CheckBox guestCheck;
     CheckBox businessCheck;
     Button signUpButton;
@@ -27,7 +27,6 @@ public class SignUp extends AppCompatActivity {
     String email;
     String password;
     String name;
-    String companyName;
     String phoneNumb;
 
 
@@ -49,8 +48,8 @@ public class SignUp extends AppCompatActivity {
                     businessCheck.setChecked(false);
                 }
                 emailInput.setHint("Email");
+                nameInput.setVisibility(View.VISIBLE);
                 nameInput.setHint("Name");
-                companyNameInput.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -60,16 +59,16 @@ public class SignUp extends AppCompatActivity {
                 if(businessCheck.isChecked()){
                     guestCheck.setChecked(false);
                 }
-                nameInput.setHint("Receptionist Name");
                 emailInput.setHint("Company Email");
-                companyNameInput.setVisibility(View.VISIBLE);
+                nameInput.setVisibility(View.VISIBLE);
+                nameInput.setHint("Company Name");
             }
         });
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean validAccount = true;
+                hideKeyboard(v);
                 if(!guestCheck.isChecked() & !businessCheck.isChecked()){
                     makeToast("Please select an account type");
                 }
@@ -98,7 +97,6 @@ public class SignUp extends AppCompatActivity {
         confirmPasswordInput = findViewById(R.id.editTextConfirmPassword);
         nameInput = findViewById(R.id.editTextName);
         phoneInput = findViewById(R.id.editTextPhoneNumb);
-        companyNameInput = findViewById(R.id.editTextCompanyName);
         guestCheck = findViewById(R.id.checkBoxGuest);
         businessCheck = findViewById(R.id.checkBoxBusiness);
         signUpButton = findViewById(R.id.buttonSignUp);
@@ -109,19 +107,10 @@ public class SignUp extends AppCompatActivity {
         email = emailInput.getText().toString();
         password = passwordInput.getText().toString();
         name = nameInput.getText().toString();
-        companyName = companyNameInput.getText().toString();
         phoneNumb = phoneInput.getText().toString();
-        if(type.equals("Guest")){
-            if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
-                makeToast("Please fill in all available fields");
-                return false;
-            }
-        }
-        else if(type.equals("Business")){
-            if(email.length() == 0 | password.length() == 0 | name.length() == 0 | companyName.length() == 0 | phoneNumb.length() == 0){
-                makeToast("Please fill in all available fields");
-                return false;
-            }
+        if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
+            makeToast("Please fill in all available fields");
+            return false;
         }
         return true;
     }
@@ -156,5 +145,10 @@ public class SignUp extends AppCompatActivity {
     // This method creates Toast to send notification
     public static void makeToast(String str) {
         Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
