@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "49321248025",
+    "firebase_url": "https://covid-appointment-rapid-entry-default-rtdb.firebaseio.com",
+    "project_id": "covid-appointment-rapid-entry",
+    "storage_bucket": "covid-appointment-rapid-entry.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49321248025:android:8c6fddbad2b6e220e2b188",
+        "android_client_info": {
+          "package_name": "com.example.care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49321248025-veofe7s1je3116iga2m8dr3n10e9u0a1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.care",
+            "certificate_hash": "4f7a7c61b2ff54c7259e96fcfbe70689106fe5a9"
+          }
+        },
+        {
+          "client_id": "49321248025-s8f53qa2eaisipi0ciepun26j2c104gv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD290CNMThmUexnKBSiANVQfRwG97rbKlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49321248025-s8f53qa2eaisipi0ciepun26j2c104gv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

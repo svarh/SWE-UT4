@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Login">
+
+    <View
+        android:id="@+id/backgroundCircle"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-200dp"
+        android:layout_marginBottom="-80dp"
+        android:background="@drawable/circle2" />
+
+    <View
+        android:id="@+id/backgroundCircle3"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-35dp"
+        android:layout_marginBottom="-200dp"
+        android:background="@drawable/circle1" />
+
+    <TextView
+        android:id="@+id/textViewCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        tools:text="Login" />
+
+    <RelativeLayout
+        android:id="@+id/accountTypeSelect"
+        android:layout_width="205dp"
+        android:layout_height="41dp"
+        android:layout_below="@id/textViewCreateAccount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+
+        <CheckBox
+            android:id="@+id/checkBoxGuest"
+            android:layout_width="97dp"
+            android:layout_height="match_parent"
+            android:layout_alignStart="@id/checkBoxBusiness"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="true"
+            android:text="@string/guest"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBusiness"
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="@string/business"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accountTypeSelect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="125dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <!--<EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:importantForAutofill="no" />-->
+
+    <!--<EditText
+        android:id="@+id/editTextName"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextConfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />-->
+
+    <!--<EditText
+        android:id="@+id/editTextPhoneNumb"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:importantForAutofill="no" />-->
+
+    <!-- <EditText
+        android:id="@+id/editTextCompanyName"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextConfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:visibility="invisible"
+        />-->
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="433dp"
+        android:background="@drawable/my_button"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        tools:text="Login" />
+
+
+</RelativeLayout>
