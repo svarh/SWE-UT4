@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">CARE</string>
+    <string name="app_name_long">Covid Appointment Rapid Entry</string>
+    <string name="guest">Guest</string>
+    <string name="business">Business</string>
+    <string name="create_your_account">Create Your Account</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="company_name">Company Name</string>
+
+    <string name="sign_in_as_guest">Sign in as Guest</string>
+    <string name="sign_in_as_business">Sign in as Business</string>
+
+
+    <!-- Strings for UserModel -->
+    <string name="wrong_email_or_password">Wrong email or passwords. Please try again!</string>
+    <string name="email_invalid">Email is invalid.</string>
+    <string name="password_invalid">Password needs to have 6-12 characters, only contains letters and numbers.</string>
+
 </resources>

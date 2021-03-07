@@ -14,10 +14,15 @@ public class UserModel extends MainActivity {
                 && (str.matches("^[a-zA-Z0-9]*$")));
     }
 
-    public void login (String username, String password) {
+    private boolean isEmailValid(CharSequence email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email)
+                .matches();
+    }
 
-        // Username is not valid
-        if (!isValid(username)) {
+    public void login (String email, String password, boolean asGuest) {
+
+        // Email is not valid
+        if (!isEmailValid(email)) {
             setNotification(2);
             return;
         }
@@ -28,29 +33,29 @@ public class UserModel extends MainActivity {
             return;
         }
 
-        // TODO: Username and password are ok, send to Credential
-
-
+        // Username and password are ok, send to Credential
+        Credential credential = new Credential(email, password, asGuest);
+        credential.login();
     }
 
     // This function sets notification
     // int notificationType:
-    //      1: Wrong username or passwords
-    //      2: Username needs to have 6-12 characters, only contains letters and numbers.
+    //      1: Wrong email or passwords
+    //      2: Email is invalid
     //      3: Password needs to have 6-12 characters, only contains letters and numbers.
     public void setNotification (int notificationType) {
         String notification = "";
         switch (notificationType) {
             case 1:
-                notification = "Wrong username or passwords. Please try again!";
+                notification = getString(R.string.wrong_email_or_password);
                 break;
 
             case 2:
-                notification = "Username needs to have 6-12 characters, only contains letters and numbers.";
+                notification = getString(R.string.email_invalid);
                 break;
 
             case 3:
-                notification = "Password needs to have 6-12 characters, only contains letters and numbers.";
+                notification = getString(R.string.password_invalid);
                 break;
         }
         makeToast(notification);
