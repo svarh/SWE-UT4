@@ -24,21 +24,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+/*
             case R.id.btnGuest:
                 this.asGuest = true;
                 this.btnLogin.setText(getString(R.string.sign_in_as_guest));
                 break;
+*/
 
-            case R.id.btnBusiness:
+           /* case R.id.btnBusiness:
                 this.asGuest = false;
                 this.btnLogin.setText(getString(R.string.sign_in_as_business));
-                break;
+                break;*/
 
             case R.id.btnLogIn:
-                String username = editTxtUsername.getText().toString();
+                /*String username = editTxtUsername.getText().toString();
                 String password = editTxtPassword.getText().toString();
                 this.userModel.login(username, password, asGuest);
+                break;*/
+                loginActivity();
                 break;
+
 
             case R.id.btnSignUp:
                 signUpActivity();
@@ -56,14 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         userModel = new UserModel();
 
         // Initialize Edit Text
-        this.editTxtUsername = findViewById(R.id.editTxtEmail);
-        this.editTxtPassword = findViewById(R.id.editTxtPassword);
+        //this.editTxtUsername = findViewById(R.id.editTxtEmail);
+        //this.editTxtPassword = findViewById(R.id.editTxtPassword);
 
         // Initialize buttons listener
-        this.btnGuest = findViewById(R.id.btnGuest);
-        this.btnGuest.setOnClickListener(this);
-        this.btnBusiness = findViewById(R.id.btnBusiness);
-        this.btnBusiness.setOnClickListener(this);
+       // this.btnGuest = findViewById(R.id.btnGuest);
+       // this.btnGuest.setOnClickListener(this);
+        //this.btnBusiness = findViewById(R.id.btnBusiness);
+       // this.btnBusiness.setOnClickListener(this);
         this.btnLogin = findViewById(R.id.btnLogIn);
         this.btnLogin.setOnClickListener(this);
         this.btnSignUp = findViewById(R.id.btnSignUp);
@@ -84,6 +89,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // This method creates Toast to send notification
     public static void makeToast(String str) {
         Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
+    }
+
+    private void loginActivity(){
+        Intent i = new Intent(this, Login.class);
+        startActivity(i);
     }
 
     private void signUpActivity(){
