@@ -8,6 +8,7 @@
     <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="company_name">Company Name</string>
@@ -20,5 +21,6 @@
     <string name="wrong_email_or_password">Wrong email or passwords. Please try again!</string>
     <string name="email_invalid">Email is invalid.</string>
     <string name="password_invalid">Password needs to have 6-12 characters, only contains letters and numbers.</string>
+
 
 </resources>
