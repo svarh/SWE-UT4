@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountHome"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/textViewAccountHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="Account Home"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAccSettings"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAccountHome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/my_button"
+        android:text="Account Settings"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnManage"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAccSettings"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/my_button"
+        android:text="Manage Appointments"
+        android:textColor="@color/white" />
+</RelativeLayout>

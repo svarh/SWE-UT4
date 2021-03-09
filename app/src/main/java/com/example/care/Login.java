@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,14 +26,14 @@ public class Login extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "MainActivity";
 
-    EditText emailInput;
-    EditText passwordInput;
-    CheckBox guestCheck;
-    CheckBox businessCheck;
-    Button loginButton;
+    private EditText emailInput;
+    private EditText passwordInput;
+    private CheckBox guestCheck;
+    private CheckBox businessCheck;
+    private Button loginButton;
 
-    String email;
-    String password;
+    private String email;
+    private String password;
 
 
 
@@ -156,6 +157,7 @@ public class Login extends AppCompatActivity {
     private void checkLogin(String pass){
         if(password.equals(pass)){
             Toast.makeText(getApplicationContext(),"You Have Successfully Logged In!",Toast.LENGTH_SHORT).show();
+            accountHomeActivity();
         }
         else{
             Toast.makeText(getApplicationContext(),"Incorrect Password.",Toast.LENGTH_SHORT).show();
@@ -170,6 +172,11 @@ public class Login extends AppCompatActivity {
 
     public static void makeToast(String str) {
         Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
+    }
+
+    private void accountHomeActivity(){
+        Intent intent = new Intent(this, AccountHome.class);
+        startActivity(intent);
     }
 
     public void hideKeyboard(View view) {

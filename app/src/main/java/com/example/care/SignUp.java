@@ -14,19 +14,19 @@ import android.widget.Toast;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText emailInput;
-    EditText passwordInput;
-    EditText confirmPasswordInput;
-    EditText nameInput;
-    EditText phoneInput;
-    CheckBox guestCheck;
-    CheckBox businessCheck;
-    Button signUpButton;
+    private EditText emailInput;
+    private EditText passwordInput;
+    private EditText confirmPasswordInput;
+    private EditText nameInput;
+    private EditText phoneInput;
+    private CheckBox guestCheck;
+    private CheckBox businessCheck;
+    private Button signUpButton;
 
-    String email;
-    String password;
-    String name;
-    String phoneNumb;
+    private String email;
+    private String password;
+    private String name;
+    private String phoneNumb;
 
 
     static Activity thisActivity = null;
