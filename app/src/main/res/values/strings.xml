@@ -21,6 +21,9 @@
     <string name="wrong_email_or_password">Wrong email or passwords. Please try again!</string>
     <string name="email_invalid">Email is invalid.</string>
     <string name="password_invalid">Password needs to have 6-12 characters, only contains letters and numbers.</string>
+    <string name="survey">Survey</string>
+    <string name="textview">TextView</string>
+    <string name="cdc_facilities_covid_19_screening">CDC FACILITIES COVID-19 SCREENING</string>
 
 
 </resources>

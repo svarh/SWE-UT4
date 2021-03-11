@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    tools:context=".Survey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="@string/cdc_facilities_covid_19_screening"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.028" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="364dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:text="Have you experienced any of the following symptoms in the past 48 hours:"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="231dp"
+            android:layout_height="190dp"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:lines="12"
+            android:maxLines="12"
+            android:text="- fever or chills \n- cough \n- shortness of breath or difficulty breathing \n- fatigue \n- muscle or body aches \n- headache \n- new loss of taste or smell \n- sore throat \n- congestion or runny nose \n- nausea or vomiting \n- diarrhea "
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <CheckBox
+            android:id="@+id/checkBoxYes_1"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView7"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="20dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Yes"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNo_1"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView7"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="No"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="364dp"
+            android:layout_height="37dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="404dp"
+            android:layout_marginEnd="15dp"
+            android:text="Have you been in close physical contact in the last 14 days with:"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.242"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="351dp"
+            android:layout_height="71dp"
+            android:layout_below="@+id/textView8"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:lines="4"
+            android:maxLines="4"
+            android:text="- Anyone who is known to have laboratory-confirmed COVID-19? \n    OR \n- Anyone who has any symptoms consistent with COVID-19?"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <CheckBox
+            android:id="@+id/checkBoxYes_2"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Yes"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNo_2"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="No"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="349dp"
+            android:layout_height="59dp"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="15dp"
+            android:text="Are you isolating or quarantining because you may have been exposed to a person with COVID-19 or are worried that you may be sick with COVID-19?"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.242"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/checkBoxYes_3"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView10"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Yes"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNo_3"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView10"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="No"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="347dp"
+            android:layout_height="39dp"
+            android:layout_below="@+id/textView10"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="15dp"
+            android:text="Are you currently waiting on the results of a COVID-19 test?"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.242"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBoxYes_4"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView11"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Yes"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNo_4"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView11"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="No"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="347dp"
+            android:layout_height="39dp"
+            android:layout_below="@+id/textView11"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="15dp"
+            android:text="Have you traveled in the past 10 days?"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.242"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBoxYes_5"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView12"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Yes"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNo_5"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView12"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="No"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="347dp"
+            android:layout_height="39dp"
+            android:layout_below="@+id/textView12"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="15dp"
+            android:text="By hitting submit I certify that my responses are true and correct"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBoxYes_6"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView13"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Yes"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNo_6"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView13"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="78dp"
+            android:layout_marginBottom="0dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="No"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView13"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/my_button"
+            android:text="submit"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </RelativeLayout>
+
+
+
+</ScrollView>
