@@ -1,9 +1,12 @@
 package com.example.care;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -12,7 +15,17 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class SignUp extends AppCompatActivity {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private static final String TAG = "MainActivity";
 
     private EditText emailInput;
     private EditText passwordInput;
@@ -79,14 +92,14 @@ public class SignUp extends AppCompatActivity {
                 else if(guestCheck.isChecked()){
                     if(checkInputs()){
                         if(checkValidity()) {
-                            makeToast("Account Created!");
+                            emailAvailable();
                         }
                     }
                 }
                 else if(businessCheck.isChecked()){
                     if(checkInputs()){
                         if(checkValidity()) {
-                            makeToast("Account Created!");
+                            emailAvailable();
                         }
                     }
                 }
@@ -141,6 +154,63 @@ public class SignUp extends AppCompatActivity {
         return true;
     }
 
+    //Saves the account to Firestore
+    public void signUp(){
+        saveToCloud();
+        makeToast("Account Created!");
+        mainActivity();
+    }
+
+    //Checks if an account with this email has already been created and if not, creates the account
+    private void emailAvailable(){
+        DocumentReference docRef = db.collection("Users").document(email);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Toast.makeText(getApplicationContext(),"Account with this email already exists",Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Document exists!");
+                    } else {
+                        signUp();
+                        Log.d(TAG, "Document does not exist!");
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(),"Error! Please Try Again.",Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Failed with: ", task.getException());
+                }
+            }
+        });
+    }
+
+    //Saves the guest account to the firestore
+    private void saveToCloud() {
+        if (guestCheck.isChecked()) {
+            Guest g = new Guest(email, password, true, name, phoneNumb);
+            db.collection("Users").document(email)
+                    .set(g)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+        } else {
+            makeToast("Business class does not exist");
+        }
+    }
+
+    private void mainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
     // This method creates Toast to send notification
     public static void makeToast(String str) {
