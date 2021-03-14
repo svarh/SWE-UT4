@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="70dp"
         android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="35sp"
@@ -108,7 +108,7 @@
         android:textColorHint="@color/white" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

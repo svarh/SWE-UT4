@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,19 +26,19 @@ public class SignUp extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "MainActivity";
 
-    private EditText emailInput;
-    private EditText passwordInput;
-    private EditText confirmPasswordInput;
-    private EditText nameInput;
-    private EditText phoneInput;
-    private CheckBox guestCheck;
-    private CheckBox businessCheck;
-    private Button signUpButton;
+    EditText emailInput;
+    EditText passwordInput;
+    EditText confirmPasswordInput;
+    EditText nameInput;
+    EditText phoneInput;
+    CheckBox guestCheck;
+    CheckBox businessCheck;
+    Button signUpButton;
 
-    private String email;
-    private String password;
-    private String name;
-    private String phoneNumb;
+    String email;
+    String password;
+    String name;
+    String phoneNumb;
 
 
     static Activity thisActivity = null;
@@ -80,25 +79,19 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hideKeyboard(v);
-
-                email = emailInput.getText().toString();
-                password = passwordInput.getText().toString();
-                name = nameInput.getText().toString();
-                phoneNumb = phoneInput.getText().toString();
-
                 if(!guestCheck.isChecked() & !businessCheck.isChecked()){
                     makeToast("Please select an account type");
                 }
                 else if(guestCheck.isChecked()){
-                    if(checkInputs()){
-                        if(checkValidity()) {
+                    if(checkInputs("Guest")){
+                        if(checkValidity(password, email, phoneNumb)) {
                             emailAvailable();
                         }
                     }
                 }
                 else if(businessCheck.isChecked()){
-                    if(checkInputs()){
-                        if(checkValidity()) {
+                    if(checkInputs("Business")){
+                        if(checkValidity(password, email, phoneNumb)) {
                             emailAvailable();
                         }
                     }
@@ -116,11 +109,15 @@ public class SignUp extends AppCompatActivity {
         phoneInput = findViewById(R.id.editTextPhoneNumb);
         guestCheck = findViewById(R.id.checkBoxGuest);
         businessCheck = findViewById(R.id.checkBoxBusiness);
-        signUpButton = findViewById(R.id.buttonLogin);
+        signUpButton = findViewById(R.id.buttonSignUp);
     }
 
     // This method collects all inputs to it's corresponding variables and checks if they all have been filled in
-    private boolean checkInputs(){
+    private boolean checkInputs(String type){
+        email = emailInput.getText().toString();
+        password = passwordInput.getText().toString();
+        name = nameInput.getText().toString();
+        phoneNumb = phoneInput.getText().toString();
         if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
             makeToast("Please fill in all available fields");
             return false;
@@ -135,16 +132,16 @@ public class SignUp extends AppCompatActivity {
     }
 
     // This method checks if the inputs for password, email, and phone number are valid
-    private boolean checkValidity(){
-        if (!isEmailValid(email)) {
-            makeToast("Email is invalid");
-            return false;
-        }
+    private boolean checkValidity(String password, String email, String phoneNumb){
         if (password.length() < 6 | password.length() > 12) {
             makeToast("Password must be between 6 - 12 characters");
             return false;
         } else if (!password.equals(confirmPasswordInput.getText().toString())) {
             makeToast("Passwords do not match");
+            return false;
+        }
+        if (!isEmailValid(email)) {
+            makeToast("Email is invalid");
             return false;
         }
         if (phoneNumb.length() != 10) {
@@ -158,7 +155,6 @@ public class SignUp extends AppCompatActivity {
     public void signUp(){
         saveToCloud();
         makeToast("Account Created!");
-        mainActivity();
     }
 
     //Checks if an account with this email has already been created and if not, creates the account
@@ -207,16 +203,12 @@ public class SignUp extends AppCompatActivity {
         }
     }
 
-    private void mainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
     // This method creates Toast to send notification
     public static void makeToast(String str) {
         Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
     }
 
+    //method to hide the keyboard
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);

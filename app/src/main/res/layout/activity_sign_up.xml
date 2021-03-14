@@ -149,14 +149,13 @@
         />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="531dp"
         android:background="@drawable/my_button"
-        android:layout_below="@id/editTextPhoneNumb"
         android:text="@string/sign_up"
         android:textColor="@color/white" />
 

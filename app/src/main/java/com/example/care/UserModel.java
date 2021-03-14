@@ -1,10 +1,22 @@
 package com.example.care;
 
-public class UserModel extends MainActivity {
+import android.app.Activity;
+import android.widget.Toast;
+
+
+public class UserModel{
+
+    private Activity activity;
+    private FireStore firestore;
+
+    public UserModel (Activity calledFrom) {
+        this.activity = calledFrom;
+        this.firestore = new FireStore();
+    }
 
     // This function check
     private boolean isValid (String str) {
-        // Check to see if the length is valid (6 - 12 characters
+        // Check to see if the length is valid (6 - 12 characters)
         if (str.length() < 6 || str.length() > 12) {
             return false;
         }
@@ -17,6 +29,28 @@ public class UserModel extends MainActivity {
     private boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email)
                 .matches();
+    }
+    // This function sets notification
+    // int notificationType:
+    //      1: Wrong email or passwords
+    //      2: Email is invalid
+    //      3: Password needs to have 6-12 characters, only contains letters and numbers.
+    private void setNotification (int notificationType) {
+        String notification = "";
+        switch (notificationType) {
+            case 1:
+                notification = this.activity.getString(R.string.wrong_email_or_password);
+                break;
+
+            case 2:
+                notification = this.activity.getString(R.string.email_invalid);
+                break;
+
+            case 3:
+                notification = this.activity.getString(R.string.password_invalid);
+                break;
+        }
+        Toast.makeText(this.activity, notification, Toast.LENGTH_SHORT).show();
     }
 
     public void login (String email, String password, boolean asGuest) {
@@ -33,31 +67,9 @@ public class UserModel extends MainActivity {
             return;
         }
 
-        // Username and password are ok, send to Credential
-        Credential credential = new Credential(email, password, asGuest);
-        credential.login();
+        // TODO: Username and password are ok, send to Credential
+        // firestore.saveToCloud()
+
     }
 
-    // This function sets notification
-    // int notificationType:
-    //      1: Wrong email or passwords
-    //      2: Email is invalid
-    //      3: Password needs to have 6-12 characters, only contains letters and numbers.
-    public void setNotification (int notificationType) {
-        String notification = "";
-        switch (notificationType) {
-            case 1:
-                notification = getString(R.string.wrong_email_or_password);
-                break;
-
-            case 2:
-                notification = getString(R.string.email_invalid);
-                break;
-
-            case 3:
-                notification = getString(R.string.password_invalid);
-                break;
-        }
-        makeToast(notification);
-    }
 }

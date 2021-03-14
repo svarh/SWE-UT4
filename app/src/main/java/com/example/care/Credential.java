@@ -1,7 +1,7 @@
 package com.example.care;
 
 public class Credential {
-    private String email;
+/*    private String email;
     private String password;
     private boolean asGuest; // true for Guest, false for Business
     private boolean isLoggedIn;
@@ -42,16 +42,12 @@ public class Credential {
         return asGuest;
     }
 
-    // This function send email and password to database to log in
-    public void login () {
-        // TODO: Send email and password to database
-    }
 
     // This function is called by database when log in failed (wrong username or password)
     public void loginFailed () {
         // Notify user that log in has failed
-        UserModel um = new UserModel();
-        um.setNotification(1);
+        //UserModel um = new UserModel();
+        //um.setNotification(1);
     }
-
+*/
 }
