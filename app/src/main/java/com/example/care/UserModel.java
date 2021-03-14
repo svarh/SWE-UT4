@@ -7,11 +7,9 @@ import android.widget.Toast;
 public class UserModel{
 
     private Activity activity;
-    private FireStore firestore;
 
     public UserModel (Activity calledFrom) {
         this.activity = calledFrom;
-        this.firestore = new FireStore();
     }
 
     // This function check
@@ -67,7 +65,7 @@ public class UserModel{
             return;
         }
 
-        // TODO: Username and password are ok, send to Credential
+        // TODO: Username and password are ok, send it to database
         // firestore.saveToCloud()
 
     }
