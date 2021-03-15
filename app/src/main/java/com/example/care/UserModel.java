@@ -13,7 +13,7 @@ public class UserModel{
     }
 
     // This function check
-    private boolean isValid (String str) {
+    private boolean isValidPass (String str) {
         // Check to see if the length is valid (6 - 12 characters)
         if (str.length() < 6 || str.length() > 12) {
             return false;
@@ -47,27 +47,65 @@ public class UserModel{
             case 3:
                 notification = this.activity.getString(R.string.password_invalid);
                 break;
+
+            case 4:
+                notification = this.activity.getString(R.string.password_not_match);
+                break;
+
+            case 5:
+                notification = this.activity.getString(R.string.phone_invalid);
+                break;
         }
         Toast.makeText(this.activity, notification, Toast.LENGTH_SHORT).show();
     }
 
-    public void login (String email, String password, boolean asGuest) {
+    public void makeToast(String str) {
+        Toast.makeText(this.activity, str, Toast.LENGTH_SHORT).show();
+    }
+
+    public boolean login (String email, String password) {
 
         // Email is not valid
         if (!isEmailValid(email)) {
             setNotification(2);
-            return;
+            return false;
         }
 
         // Password is not valid
-        if (!isValid(password)) {
+        if (!isValidPass(password)) {
             setNotification(3);
-            return;
+            return false;
         }
 
-        // TODO: Username and password are ok, send it to database
-        // firestore.saveToCloud()
+        return true;
+    }
 
+    public boolean signUp (String email, String password, String confirmPass, String phone){
+        //Email is not valid
+        if(!isEmailValid(email)){
+            setNotification(2);
+            return false;
+        }
+
+        //Password is not valid
+        if (!isValidPass(password)){
+            setNotification(3);
+            return false;
+        }
+
+        //Passwords do not match
+        if(!password.equals(confirmPass)){
+            setNotification(4);
+            return false;
+        }
+
+        //Phone number is not valid
+        if(phone.length() != 10){
+            setNotification(5);
+            return false;
+        }
+
+        return true;
     }
 
 }

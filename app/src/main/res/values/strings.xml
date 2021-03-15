@@ -21,6 +21,8 @@
     <string name="wrong_email_or_password">Wrong email or passwords. Please try again!</string>
     <string name="email_invalid">Email is invalid.</string>
     <string name="password_invalid">Password needs to have 6-12 characters, only contains letters and numbers.</string>
+    <string name="password_not_match">Passwords do not match</string>
+    <string name="phone_invalid">Phone number is invalid</string>
 
 
 </resources>

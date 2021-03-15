@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,8 +38,11 @@ public class SignUp extends AppCompatActivity {
 
     String email;
     String password;
+    String confirmPass;
     String name;
     String phoneNumb;
+
+    private UserModel userModel;
 
 
     static Activity thisActivity = null;
@@ -50,6 +54,7 @@ public class SignUp extends AppCompatActivity {
 
         setUI();
         thisActivity = this;
+        userModel = new UserModel(this);
 
         guestCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -79,19 +84,17 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hideKeyboard(v);
+                email = emailInput.getText().toString();
+                password = passwordInput.getText().toString();
+                confirmPass = confirmPasswordInput.getText().toString();
+                name = nameInput.getText().toString();
+                phoneNumb = phoneInput.getText().toString();
                 if(!guestCheck.isChecked() & !businessCheck.isChecked()){
-                    makeToast("Please select an account type");
+                    userModel.makeToast("Please select an account type");
                 }
-                else if(guestCheck.isChecked()){
-                    if(checkInputs("Guest")){
-                        if(checkValidity(password, email, phoneNumb)) {
-                            emailAvailable();
-                        }
-                    }
-                }
-                else if(businessCheck.isChecked()){
-                    if(checkInputs("Business")){
-                        if(checkValidity(password, email, phoneNumb)) {
+                else{
+                    if(checkInputs()){
+                        if(userModel.signUp(email, password, confirmPass, phoneNumb)){
                             emailAvailable();
                         }
                     }
@@ -113,39 +116,9 @@ public class SignUp extends AppCompatActivity {
     }
 
     // This method collects all inputs to it's corresponding variables and checks if they all have been filled in
-    private boolean checkInputs(String type){
-        email = emailInput.getText().toString();
-        password = passwordInput.getText().toString();
-        name = nameInput.getText().toString();
-        phoneNumb = phoneInput.getText().toString();
+    private boolean checkInputs(){
         if(email.length() == 0 | password.length() == 0 | name.length() == 0 | phoneNumb.length() == 0){
-            makeToast("Please fill in all available fields");
-            return false;
-        }
-        return true;
-    }
-
-    // This method checks if the email input is a valid email
-    private boolean isEmailValid(CharSequence email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email)
-                .matches();
-    }
-
-    // This method checks if the inputs for password, email, and phone number are valid
-    private boolean checkValidity(String password, String email, String phoneNumb){
-        if (password.length() < 6 | password.length() > 12) {
-            makeToast("Password must be between 6 - 12 characters");
-            return false;
-        } else if (!password.equals(confirmPasswordInput.getText().toString())) {
-            makeToast("Passwords do not match");
-            return false;
-        }
-        if (!isEmailValid(email)) {
-            makeToast("Email is invalid");
-            return false;
-        }
-        if (phoneNumb.length() != 10) {
-            makeToast("Phone number is invalid");
+            userModel.makeToast("Please fill in all available fields");
             return false;
         }
         return true;
@@ -154,7 +127,9 @@ public class SignUp extends AppCompatActivity {
     //Saves the account to Firestore
     public void signUp(){
         saveToCloud();
-        makeToast("Account Created!");
+        userModel.makeToast("Account Created!");
+        Intent intent = new Intent(SignUp.this, MainActivity.class);
+        startActivity(intent);
     }
 
     //Checks if an account with this email has already been created and if not, creates the account
@@ -183,7 +158,7 @@ public class SignUp extends AppCompatActivity {
     //Saves the guest account to the firestore
     private void saveToCloud() {
         if (guestCheck.isChecked()) {
-            Guest g = new Guest(email, password, true, name, phoneNumb);
+            Guest g = new Guest(email, password, name, phoneNumb);
             db.collection("Users").document(email)
                     .set(g)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -199,13 +174,22 @@ public class SignUp extends AppCompatActivity {
                         }
                     });
         } else {
-            makeToast("Business class does not exist");
+            Business b = new Business(email, password, name, phoneNumb);
+            db.collection("Users").document(email)
+                    .set(b)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
         }
-    }
-
-    // This method creates Toast to send notification
-    public static void makeToast(String str) {
-        Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
     }
 
     //method to hide the keyboard
