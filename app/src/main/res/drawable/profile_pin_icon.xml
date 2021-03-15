@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+    <path
+        android:fillColor="#FFF"
+        android:pathData="M30 5C17.57 5 7.5 15.07 7.5 27.5c0 10.42 7.1 19.17 16.73 21.73L30 55l5.77-5.77C45.4 46.68 52.5 37.92 52.5 27.5C52.5 15.07 42.42 5 30 5zm0 5c4.15 0 7.5 3.35 7.5 7.5S34.15 25 30 25s-7.5-3.35-7.5-7.5S25.85 10 30 10zm0 35.75c-6.25 0-11.77-3.2-15-8.05c0.07-4.98 10-7.7 15-7.7c4.98 0 14.92 2.73 15 7.7c-3.23 4.85-8.75 8.05-15 8.05z"/>
+</vector>

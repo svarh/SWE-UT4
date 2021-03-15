@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rectangle 8 -->
+
+
+    <!-- drawable/rectangle_8.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="411dp"
+    android:height="618dp"
+    android:viewportWidth="411"
+    android:viewportHeight="618">
+    <path
+        android:fillColor="#CC6AD5CB"
+        android:pathData="M0-0.5h207.5H415v296.4s0 199.56-207.5 162.75S0 618 0 618V-0.5z"/>
+</vector>
+
+
+
+
