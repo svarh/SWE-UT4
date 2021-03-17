@@ -124,7 +124,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             Guest g = new Guest((String) document.getData().get("email"), (String) document.getData().get("password"), (String) document.getData().get("name"), (String) document.getData().get("phone"));
                             if (g.getPassword().equals(password)) {
                                 userModel.makeToast("Login Successful!");
-                                //Create intents to save guest object and move to accountHome
+
+                                Intent intent = new Intent(Login.this, GuestHome.class);
+                                startActivity(intent);
                             } else {
                                 userModel.makeToast("Incorrect password. Please try again!");
                             }
