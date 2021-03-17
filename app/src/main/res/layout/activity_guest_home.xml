@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background2"
+    android:clickable="true"
+    android:clipToPadding="false"
+    tools:context=".GuestHome">
+
+
+
+    <View
+        android:id="@+id/backgroundRectangle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-1dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/rectangle1" />
+
+    <View
+        android:id="@+id/backgroundRectangle2"
+        android:layout_width="match_parent"
+        android:layout_height="479dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/rectangle2" />
+
+    <View
+        android:id="@+id/guestLines"
+        android:layout_width="56dp"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="351dp"
+        android:layout_marginBottom="610dp"
+        android:background="@drawable/lines"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/txtViewCARE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imgShield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewCARE"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/shield" />
+
+    <Button
+        android:id="@+id/btnTakeSurvey"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/imgShield"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/my_button"
+        android:text="@string/covid_survey"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnCovidResults"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/imgShield"
+        android:layout_alignRight="@+id/btnTakeSurvey"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="-232dp"
+        android:background="@drawable/my_button"
+        android:text="@string/upload_covid_results"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnScheduleAppts"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/btnTakeSurvey"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="-231dp"
+        android:background="@drawable/my_button"
+        android:text="@string/schedule_appt"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnCalendar"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/btnCovidResults"
+        android:layout_alignRight="@+id/btnTakeSurvey"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="-231dp"
+        android:background="@drawable/my_button"
+        android:text="@string/calendar"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnExploreBusiness"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/btnScheduleAppts"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="-231dp"
+        android:background="@drawable/my_button"
+        android:text="@string/explore_business"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnBusinessVisited"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_below="@+id/btnCalendar"
+        android:layout_alignRight="@+id/btnExploreBusiness"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="false"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="-231dp"
+        android:background="@drawable/my_button"
+        android:text="@string/business_visited"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>
