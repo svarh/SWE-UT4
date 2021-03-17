@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -39,6 +40,7 @@ public class RecViewQuestionAdapter  extends RecyclerView.Adapter<RecViewQuestio
             @Override
             public void onClick(View v) {
                 holder.chkBoxQuestionYes.setChecked(true);
+                questions.get(position).setAnsType(AnswerType.YES);
                 if (holder.chkBoxQuestionNo.isChecked()) {
                     holder.chkBoxQuestionNo.setChecked(false);
                 }
@@ -49,6 +51,7 @@ public class RecViewQuestionAdapter  extends RecyclerView.Adapter<RecViewQuestio
             @Override
             public void onClick(View v) {
                 holder.chkBoxQuestionNo.setChecked(true);
+                questions.get(position).setAnsType(AnswerType.NO);
                 if (holder.chkBoxQuestionYes.isChecked()) {
                     holder.chkBoxQuestionYes.setChecked(false);
                 }

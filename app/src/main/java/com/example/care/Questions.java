@@ -1,17 +1,29 @@
 package com.example.care;
 
-import android.widget.CheckBox;
+enum AnswerType {
+    YES, NO, EMPTY
+}
 
 public class Questions {
 
     private int questionNumber;
     private String questionMain;
     private String questionDetail;
+    private AnswerType ansType;
 
     public Questions(int questionNumber, String questionMain, String questionDetail) {
         this.questionNumber = questionNumber;
         this.questionMain = questionMain;
         this.questionDetail = questionDetail;
+        this.ansType = AnswerType.EMPTY;
+    }
+
+    public AnswerType getAnsType() {
+        return ansType;
+    }
+
+    public void setAnsType(AnswerType ansType) {
+        this.ansType = ansType;
     }
 
     public int getQuestionNumber() {
