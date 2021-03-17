@@ -8,6 +8,16 @@
     tools:context=".Login">
 
     <View
+        android:id="@+id/backgroundCircle3"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-35dp"
+        android:layout_marginBottom="-200dp"
+        android:background="@drawable/circle1" />
+
+    <View
         android:id="@+id/backgroundCircle"
         android:layout_width="330dp"
         android:layout_height="330dp"
@@ -17,15 +27,7 @@
         android:layout_marginBottom="-80dp"
         android:background="@drawable/circle2" />
 
-    <View
-        android:id="@+id/backgroundCircle3"
-        android:layout_width="330dp"
-        android:layout_height="330dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="-35dp"
-        android:layout_marginBottom="-200dp"
-        android:background="@drawable/circle1" />
+
 
     <TextView
         android:id="@+id/textViewCreateAccount"

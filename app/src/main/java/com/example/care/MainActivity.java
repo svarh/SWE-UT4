@@ -60,7 +60,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loginActivity(){
-        Intent i = new Intent(this, Login.class);
+        //Intent i = new Intent(this, Login.class);
+        //startActivity(i);
+
+        // TODO: Testing Survey
+        Intent i = new Intent(this, Survey.class);
         startActivity(i);
     }
 
