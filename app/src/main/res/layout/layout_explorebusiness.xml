@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15dp"
-    android:id="@+id/officer_parentLayout"
+    android:id="@+id/business_parentLayout"
     android:background="@drawable/border"
     >
 
     <TextView
-        android:id="@+id/tvOfficerName"
+        android:id="@+id/tvBusinessName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:textColor="@color/white"
-        android:text="@string/firstname_lastname" />
+        android:text="@string/businessname" />
 </RelativeLayout>

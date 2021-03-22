@@ -19,6 +19,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     private Button btnExploreBusiness = null;
     private Button btnBusinessVisited = null;
 
+    private GuestAccount guest;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -73,6 +75,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guest_home);
 
+        guest = getIntent().getExtras().getParcelable("User");
+
         initialize();
 
     }
@@ -103,6 +107,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
 
     private void exploreBusinessActivity(){
         Intent intent = new Intent(this, GuestExploreBusiness.class);
+        intent.putExtra("User", guest);
         startActivity(intent);
     }
     private void visitedBusinessActivity(){

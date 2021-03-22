@@ -110,11 +110,9 @@ public class ManageBusinessOfficers extends AppCompatActivity {
         removeOfficer = findViewById(R.id.btnRemoveOfficer);
         accountHome = findViewById(R.id.btnAccountHome);
 
-        if(business.getOfficers() != null) {
-            RVOfficerAdapter adapter = new RVOfficerAdapter(business.getOfficers(), this);
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        }
+        RVOfficerAdapter adapter = new RVOfficerAdapter(business.getOfficers(), this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void saveData(){
