@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GuestAccount implements Parcelable {
     private String email;
@@ -12,6 +13,7 @@ public class GuestAccount implements Parcelable {
     private String name;
     private String phone;
     private ArrayList<Appointment> appointments;
+    private HashMap<Date, Boolean> covidResults;
 
     public GuestAccount(String email, String password) {
         this.email = email;
@@ -20,6 +22,7 @@ public class GuestAccount implements Parcelable {
         this.name = null;
         this.phone = null;
         this.appointments = new ArrayList<>();
+        this.covidResults = new HashMap<>();
     }
 
     public GuestAccount (String email, String password, String name, String phone){
@@ -29,6 +32,7 @@ public class GuestAccount implements Parcelable {
         this.name = name;
         this.phone = phone;
         this.appointments = new ArrayList<>();
+        this.covidResults = new HashMap<>();
     }
 
     protected GuestAccount(Parcel in) {
@@ -37,7 +41,9 @@ public class GuestAccount implements Parcelable {
         asGuest = in.readByte() != 0;
         name = in.readString();
         phone = in.readString();
-        in.writeTypedList(appointments);
+        appointments = in.readArrayList(ClassLoader.getSystemClassLoader());
+        covidResults = in.readHashMap(ClassLoader.getSystemClassLoader());
+
     }
 
     public static final Creator<GuestAccount> CREATOR = new Creator<GuestAccount>() {
@@ -92,6 +98,17 @@ public class GuestAccount implements Parcelable {
         appointments.add(appointment);
     }
 
+    public void setCovidResults(HashMap<Date, Boolean> covidResults) {
+        this.covidResults = covidResults;
+    }
+
+    public HashMap<Date, Boolean> getCovidResults() {
+        return covidResults;
+    }
+
+    public int getAppointmentSize(){
+        return appointments.size();
+    }
     @Override
     public int describeContents() {
         return 0;
@@ -104,6 +121,7 @@ public class GuestAccount implements Parcelable {
         dest.writeByte((byte) (asGuest ? 1 : 0));
         dest.writeString(name);
         dest.writeString(phone);
-        dest.readTypedList(appointments, Appointment.CREATOR);
+        dest.writeList(appointments);
+        dest.writeMap(covidResults);
     }
 }

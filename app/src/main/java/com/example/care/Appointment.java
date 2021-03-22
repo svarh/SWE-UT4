@@ -9,18 +9,14 @@ public class Appointment implements Parcelable {
     private String guestName;
     private String officerName;
     private String businessName;
-    private int month;
-    private int day;
-    private int year;
+    private Date date;
     private int time;
 
-    public Appointment(String guestName, String officerName, String businessName, int month, int day, int year, int time){
+    public Appointment(String guestName, String officerName, String businessName, Date date, int time){
         this.guestName = guestName;
         this.officerName = officerName;
         this.businessName = businessName;
-        this.month = month;
-        this.day = day;
-        this.year = year;
+        this.date = date;
         this.time = time;
     }
 
@@ -28,9 +24,7 @@ public class Appointment implements Parcelable {
         guestName = in.readString();
         officerName = in.readString();
         businessName = in.readString();
-        month = in.readInt();
-        day = in.readInt();
-        year = in.readInt();
+        date = in.readParcelable(Date.class.getClassLoader());
         time = in.readInt();
     }
 
@@ -58,16 +52,8 @@ public class Appointment implements Parcelable {
         this.officerName = officerName;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setTime(int time) {
@@ -86,16 +72,8 @@ public class Appointment implements Parcelable {
         return officerName;
     }
 
-    public int getMonth() {
-        return month;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public int getYear() {
-        return year;
+    public Date getDate() {
+        return date;
     }
 
     public int getTime() {
@@ -108,9 +86,7 @@ public class Appointment implements Parcelable {
                 "guestName='" + guestName + '\'' +
                 ", officerName='" + officerName + '\'' +
                 ", businessName='" + businessName + '\'' +
-                ", month=" + month +
-                ", day=" + day +
-                ", year=" + year +
+                ", date=" + date +
                 ", time=" + time +
                 '}';
     }
@@ -125,9 +101,7 @@ public class Appointment implements Parcelable {
         dest.writeString(guestName);
         dest.writeString(officerName);
         dest.writeString(businessName);
-        dest.writeInt(month);
-        dest.writeInt(day);
-        dest.writeInt(year);
+        dest.writeParcelable(date, flags);
         dest.writeInt(time);
     }
 }
