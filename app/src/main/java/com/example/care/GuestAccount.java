@@ -3,12 +3,15 @@ package com.example.care;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class GuestAccount implements Parcelable {
     private String email;
     private String password;
     private boolean asGuest;
     private String name;
     private String phone;
+    private ArrayList<Appointment> appointments;
 
     public GuestAccount(String email, String password) {
         this.email = email;
@@ -16,6 +19,7 @@ public class GuestAccount implements Parcelable {
         this.asGuest = true;
         this.name = null;
         this.phone = null;
+        this.appointments = new ArrayList<>();
     }
 
     public GuestAccount (String email, String password, String name, String phone){
@@ -24,6 +28,7 @@ public class GuestAccount implements Parcelable {
         this.asGuest = true;
         this.name = name;
         this.phone = phone;
+        this.appointments = new ArrayList<>();
     }
 
     protected GuestAccount(Parcel in) {
@@ -32,6 +37,7 @@ public class GuestAccount implements Parcelable {
         asGuest = in.readByte() != 0;
         name = in.readString();
         phone = in.readString();
+        in.writeTypedList(appointments);
     }
 
     public static final Creator<GuestAccount> CREATOR = new Creator<GuestAccount>() {
@@ -70,6 +76,22 @@ public class GuestAccount implements Parcelable {
         return asGuest;
     }
 
+    public void setAppointments(ArrayList<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
+    public ArrayList<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public Appointment getAppointment(int i){
+        return appointments.get(i);
+    }
+
+    public void addAppointment(Appointment appointment){
+        appointments.add(appointment);
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -82,5 +104,6 @@ public class GuestAccount implements Parcelable {
         dest.writeByte((byte) (asGuest ? 1 : 0));
         dest.writeString(name);
         dest.writeString(phone);
+        dest.readTypedList(appointments, Appointment.CREATOR);
     }
 }
