@@ -12,16 +12,21 @@
     <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="company_name">Company Name</string>
-
     <string name="sign_in_as_guest">Sign in as Guest</string>
     <string name="sign_in_as_business">Sign in as Business</string>
+    <string name="manage_business_officers">Manage Business Officers</string>
+    <string name="add_officer">Add Officer</string>
+    <string name="remove_officer">Remove Officer</string>
 
 
     <!-- Strings for UserModel -->
     <string name="wrong_email_or_password">Wrong email or passwords. Please try again!</string>
     <string name="email_invalid">Email is invalid.</string>
     <string name="password_invalid">Password needs to have 6-12 characters, only contains letters and numbers.</string>
+
+    <!-- Strings for AccountHome -->
     <string name="covid_survey">Take Covid Survey </string>
+    <string name="view_covid_results_btn">View Covid Results</string>
     <string name="upload_covid_results">Upload Covid Results</string>
     <string name="schedule_appt">Schedule Appointments</string>
     <string name="calendar">Calendar</string>
@@ -44,6 +49,10 @@
     <!-- Strings for activity_survey -->
     <string name="survey_title">COVID-19 Survey</string>
     <string name="submit_button">Submit</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="account_home">Account Home</string>
+    <string name="firstname_lastname">FirstName LastName</string>
 
 
 </resources>

@@ -3,14 +3,14 @@ package com.example.care;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Guest implements Parcelable {
+public class GuestAccount implements Parcelable {
     private String email;
     private String password;
     private boolean asGuest;
     private String name;
     private String phone;
 
-    public Guest(String email, String password) {
+    public GuestAccount(String email, String password) {
         this.email = email;
         this.password = password;
         this.asGuest = true;
@@ -18,7 +18,7 @@ public class Guest implements Parcelable {
         this.phone = null;
     }
 
-    public Guest (String email, String password, String name, String phone){
+    public GuestAccount (String email, String password, String name, String phone){
         this.email = email;
         this.password = password;
         this.asGuest = true;
@@ -26,7 +26,7 @@ public class Guest implements Parcelable {
         this.phone = phone;
     }
 
-    protected Guest(Parcel in) {
+    protected GuestAccount(Parcel in) {
         email = in.readString();
         password = in.readString();
         asGuest = in.readByte() != 0;
@@ -34,15 +34,15 @@ public class Guest implements Parcelable {
         phone = in.readString();
     }
 
-    public static final Creator<Guest> CREATOR = new Creator<Guest>() {
+    public static final Creator<GuestAccount> CREATOR = new Creator<GuestAccount>() {
         @Override
-        public Guest createFromParcel(Parcel in) {
-            return new Guest(in);
+        public GuestAccount createFromParcel(Parcel in) {
+            return new GuestAccount(in);
         }
 
         @Override
-        public Guest[] newArray(int size) {
-            return new Guest[size];
+        public GuestAccount[] newArray(int size) {
+            return new GuestAccount[size];
         }
     };
 

@@ -158,7 +158,7 @@ public class SignUp extends AppCompatActivity {
     //Saves the guest account to the firestore
     private void saveToCloud() {
         if (guestCheck.isChecked()) {
-            Guest g = new Guest(email, password, name, phoneNumb);
+            GuestAccount g = new GuestAccount(email, password, name, phoneNumb);
             db.collection("Users").document(email)
                     .set(g)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -174,9 +174,24 @@ public class SignUp extends AppCompatActivity {
                         }
                     });
         } else {
-            Business b = new Business(email, password, name, phoneNumb);
+            BusinessAccount b = new BusinessAccount(email, password, name, phoneNumb);
+            Business business = new Business(name);
             db.collection("Users").document(email)
                     .set(b)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+            db.collection("Businesses").document(name)
+                    .set(business)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

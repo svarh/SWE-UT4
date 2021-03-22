@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CARE">
-        <activity android:name=".Survey"></activity>
+        <activity android:name=".ManageBusinessOfficers"></activity>
+        <activity android:name=".Survey" />
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />
         <activity android:name=".GuestHome" />
