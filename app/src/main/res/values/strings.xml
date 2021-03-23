@@ -57,5 +57,7 @@
     <string name="firstname_lastname">First Name Last Name</string>
     <string name="bus_appts">View Potential Appointments</string>
     <string name="manage_officers">Manage Officers</string>
+    <string name="covid_survey_results">Covid Survey Results</string>
+    <string name="date_result">Date - Result</string>
 
 </resources>

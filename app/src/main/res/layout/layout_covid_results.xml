@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_black"
+    android:padding="15dp"
+    android:id="@+id/results_parentLayout">
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_result"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        ></TextView>
+
+</RelativeLayout>

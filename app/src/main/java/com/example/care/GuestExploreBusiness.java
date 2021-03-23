@@ -50,7 +50,6 @@ public class GuestExploreBusiness extends AppCompatActivity implements View.OnCl
                 Intent intent = new Intent(GuestExploreBusiness.this, GuestHome.class);
                 intent.putExtra("User", guest);
                 startActivity(intent);
-                userModel.makeToast("HOME");
                 break;
         }
     }

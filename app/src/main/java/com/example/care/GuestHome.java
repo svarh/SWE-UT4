@@ -30,7 +30,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
                 surveyActivity(); //Survey Activity
                 break;
             case R.id.btnCovidResults:
-                uploadResultsActivity(); //Upload Activity
+                guestCovidResultsActivity(); //Upload Activity
                 break;
             case R.id.btnScheduleAppts:
                 scheduleApptActivity(); //Schedule Appointments Activity
@@ -94,8 +94,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         startActivity(intent);
     }
 
-    private void uploadResultsActivity(){
-        Intent intent = new Intent(this, UploadResults.class);
+    private void guestCovidResultsActivity(){
+        Intent intent = new Intent(this, GuestCovidResults.class);
         intent.putExtra("User", guest);
         startActivity(intent);
     }
