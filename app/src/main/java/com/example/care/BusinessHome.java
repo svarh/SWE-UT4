@@ -15,7 +15,8 @@ public class BusinessHome extends Activity implements View.OnClickListener {
     private Button btnManageOfficers = null;
     private Button btnCalendar = null;
 
-   // private BusinessAccount receptionist;
+   private BusinessAccount businessAccount;
+   private Business business;
 
     @Override
     public void onClick(View v) {
@@ -42,7 +43,7 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         // Initialize buttons
         this.btnAppointments = findViewById(R.id.btnAppointments);
         this.btnAppointments.setOnClickListener(this);
-        this.btnManageOfficers = findViewById(R.id.btnCovidResults);
+        this.btnManageOfficers = findViewById(R.id.btnManageOfficers);
         this.btnManageOfficers.setOnClickListener(this);
         this.btnCalendar = findViewById(R.id.btnCalendar);
         this.btnCalendar.setOnClickListener(this);
@@ -54,7 +55,8 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_home);
 
-      //  receptionist = getIntent().getExtras().getParcelable("User");
+        businessAccount = getIntent().getExtras().getParcelable("BusinessAcc");
+        business = getIntent().getExtras().getParcelable("Business");
 
         initialize();
 
@@ -65,14 +67,20 @@ public class BusinessHome extends Activity implements View.OnClickListener {
     }
     private void viewAppointmentsActivity(){
         Intent intent = new Intent(this, BusinessAppointments.class);
+        intent.putExtra("BusinessAcc", businessAccount);
+        intent.putExtra("Business", business);
         startActivity(intent);
     }
     private void manageOfficersActivity(){
         Intent intent = new Intent(this, ManageBusinessOfficers.class);
+        intent.putExtra("BusinessAcc", businessAccount);
+        intent.putExtra("Business", business);
         startActivity(intent);
     }
     private void calendarActivity(){
         Intent intent = new Intent(this, CalenderActivity.class);
+        intent.putExtra("BusinessAcc", businessAccount);
+        intent.putExtra("Business", business);
         startActivity(intent);
     }
 

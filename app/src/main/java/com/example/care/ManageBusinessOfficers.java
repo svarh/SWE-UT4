@@ -93,10 +93,10 @@ public class ManageBusinessOfficers extends AppCompatActivity {
         accountHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(ManageBusinessOfficers.this, BusinessHome.class);
+                Intent intent = new Intent(ManageBusinessOfficers.this, BusinessHome.class);
                 intent.putExtra("BusinessAcc", businessAccount);
                 intent.putExtra("Business", business);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
     }
@@ -133,5 +133,4 @@ public class ManageBusinessOfficers extends AppCompatActivity {
     }
 
 
-    //public void initOfficerNames(){ }
 }

@@ -148,10 +148,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 if (businessAccount.getPassword().equals(password)) {
                                     userModel.makeToast("Login Successful!");
                                     getBusiness(businessAccount);
-                                    //Intent intent = new Intent(Login.this, ManageBusinessOfficers.class);
-                                    //intent.putExtra("BusinessAcc", businessAccount);
-                                    //intent.putExtra("Business", business);
-                                    //startActivity(intent);
                                 } else {
                                     userModel.makeToast("Incorrect password. Please try again!");
                                 }
@@ -187,7 +183,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         business.setOfficers((ArrayList<String>) document.get("officers"));
                         Log.d(TAG, "Officers in class" + business.getOfficers());
 
-                        Intent intent = new Intent(Login.this, ManageBusinessOfficers.class);
+                        Intent intent = new Intent(Login.this, BusinessHome.class);
                         intent.putExtra("BusinessAcc", businessAccount);
                         intent.putExtra("Business", business);
                         startActivity(intent);
