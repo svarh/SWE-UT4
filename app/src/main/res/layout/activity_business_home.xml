@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/offwhite"
+    android:clickable="true"
+    android:clipToPadding="false"
+    tools:context=".BusinessHome">
+
+
+    <View
+        android:id="@+id/backgroundRectangle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="-1dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bus_rect_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <View
+        android:id="@+id/backgroundRectangle2"
+        android:layout_width="match_parent"
+        android:layout_height="479dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bus_rect_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <View
+        android:id="@+id/guestLines"
+        android:layout_width="56dp"
+        android:layout_height="32dp"
+        android:layout_marginRight="351dp"
+        android:layout_marginBottom="610dp"
+        android:background="@drawable/lines_green"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/txtViewCARE"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_name"
+        android:textColor="@color/background"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgShield"
+        android:elevation="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/shield"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewCARE" />
+
+    <Button
+        android:id="@+id/btnAppointments"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/my_button"
+        android:elevation="4dp"
+        android:text="@string/bus_appts"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgShield" />
+
+    <Button
+        android:id="@+id/btnManageOfficers"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/my_button"
+        android:text="@string/manage_officers"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAppointments" />
+
+    <Button
+        android:id="@+id/btnCalendar"
+        android:layout_width="118dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/my_button"
+        android:text="@string/calendar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnManageOfficers" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
