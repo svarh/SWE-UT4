@@ -10,10 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AppointmentConfirmation extends AppCompatActivity {
 
+    private GuestAccount guest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment_confirmation);
+
+        guest = getIntent().getExtras().getParcelable("User");
 
         if (getIntent().hasExtra("com.example.care.Date")){
             TextView confirmationDateTv = (TextView) findViewById(R.id.confirmationDateTv);
@@ -31,6 +35,7 @@ public class AppointmentConfirmation extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AppointmentConfirmation.this, GuestHome.class);
+                intent.putExtra("User", guest);
                 startActivity(intent);
             }
         });

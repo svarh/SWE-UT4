@@ -17,6 +17,8 @@ public class scheduleAppointment extends AppCompatActivity {
     private TextView theDate;
     private Button btnGoCalendar;
 
+    private GuestAccount guest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +84,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -94,6 +97,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -106,6 +110,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -118,6 +123,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -130,6 +136,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -142,6 +149,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -154,6 +162,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -166,6 +175,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });
@@ -178,6 +188,7 @@ public class scheduleAppointment extends AppCompatActivity {
                 //show how to pass info to another activity
                 startIntent.putExtra("com.example.care.Date", date);
                 startIntent.putExtra("com.example.care.Time", buttonTime);
+                startIntent.putExtra("User", guest);
                 startActivity(startIntent);
             }
         });

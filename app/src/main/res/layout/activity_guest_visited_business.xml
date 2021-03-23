@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuestVisitedBusiness"
+    >
+
+    <View
+        android:id="@+id/bgRectangle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle1"
+        android:rotationY="180"
+        android:layout_marginBottom="250dp"
+        ></View>
+
+    <TextView
+        android:id="@+id/tvBusinessesVisited"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="@string/businesses_visited"
+        android:textSize="35sp"
+        ></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBusinesses"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@id/tvBusinessesVisited"
+        android:layout_marginTop="30dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnAccountHome"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rvBusinesses"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@color/button_color"
+        android:text="@string/account_home"
+        android:textColor="@color/white"></Button>
+
+</RelativeLayout>
