@@ -66,10 +66,10 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         Toast.makeText(thisActivity, str, Toast.LENGTH_SHORT).show();
     }
     private void viewAppointmentsActivity(){
-        Intent intent = new Intent(this, BusinessAppointments.class);
+        /*Intent intent = new Intent(this, BusinessAppointments.class);
         intent.putExtra("BusinessAcc", businessAccount);
         intent.putExtra("Business", business);
-        startActivity(intent);
+        startActivity(intent);*/
     }
     private void manageOfficersActivity(){
         Intent intent = new Intent(this, ManageBusinessOfficers.class);
@@ -78,7 +78,7 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         startActivity(intent);
     }
     private void calendarActivity(){
-        Intent intent = new Intent(this, CalenderActivity.class);
+        Intent intent = new Intent(this, BusinessCalendar.class);
         intent.putExtra("BusinessAcc", businessAccount);
         intent.putExtra("Business", business);
         startActivity(intent);

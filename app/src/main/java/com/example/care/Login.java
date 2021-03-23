@@ -50,8 +50,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
             case R.id.buttonLogIn:
                 hideKeyboard(v);
-                this.email = emailInput.getText().toString();
-                this.password = passwordInput.getText().toString();
+                this.email = emailInput.getText().toString().trim();
+                this.password = passwordInput.getText().toString().trim();
                 this.userModel.login(this.email, this.password);
                 if(userModel.login(email, password)){
                     getData();
