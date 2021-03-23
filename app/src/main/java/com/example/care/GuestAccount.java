@@ -109,6 +109,11 @@ public class GuestAccount implements Parcelable {
     public int getAppointmentSize(){
         return appointments.size();
     }
+
+    public void addCovidResult(Date date, boolean passed){
+        covidResults.put(date, passed);
+    }
+
     @Override
     public int describeContents() {
         return 0;
