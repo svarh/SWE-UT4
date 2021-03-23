@@ -22,17 +22,15 @@
         android:id="@+id/rvOfficersList"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_below="@+id/tvManageOfficers"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="85dp" />
+        android:layout_below="@+id/btnAccountHome"
+        android:layout_marginTop="30dp" />
 
     <RelativeLayout
-        android:id="@+id/addRemoveOfficer"
+        android:id="@+id/layoutaddRemoveOfficer"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_below="@id/rvOfficersList"
-        android:layout_marginTop="15dp">
+        android:layout_below="@id/tvManageOfficers"
+        android:layout_marginTop="30dp">
 
         <EditText
             android:id="@+id/etFirst"
@@ -68,7 +66,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="50dp"
             android:backgroundTint="@color/button_color"
-            android:text="@string/add_officer"></Button>
+            android:text="@string/add_officer"
+            android:textColor="@color/white"></Button>
 
         <Button
             android:id="@+id/btnRemoveOfficer"
@@ -79,17 +78,19 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@color/button_color"
-            android:text="@string/remove_officer"></Button>
+            android:text="@string/remove_officer"
+            android:textColor="@color/white"></Button>
     </RelativeLayout>
 
     <Button
         android:id="@+id/btnAccountHome"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/addRemoveOfficer"
+        android:layout_below="@id/layoutaddRemoveOfficer"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/button_color"
         android:layout_marginTop="30dp"
-        android:text="@string/account_home"></Button>
+        android:text="@string/account_home"
+        android:textColor="@color/white"></Button>
 
 </RelativeLayout>
