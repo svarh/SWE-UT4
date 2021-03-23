@@ -2,37 +2,29 @@ package com.example.care;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Business implements Parcelable {
-    private String companyEmail;
     private String companyName;
-    private String password;
-    private boolean asGuest;
-    private String phone;
+    private ArrayList<String> officers;
 
-    public Business(String companyEmail, String password) {
-        this.companyEmail = companyEmail;
-        this.password = password;
-        this.asGuest = false;
-        this.companyName = null;
-        this.phone = null;
-    }
-
-    public Business(String companyEmail, String password, String companyName, String phone){
-        this.companyEmail = companyEmail;
-        this.password = password;
-        this.asGuest = false;
+    public Business(String companyName){
         this.companyName = companyName;
-        this.phone = phone;
+        this.officers = new ArrayList<>();
+        //this.officers.add("First Last");
     }
 
+    public Business(String companyName, ArrayList officers){
+        this.companyName = companyName;
+        this.officers = officers;
+    }
 
     protected Business(Parcel in) {
-        companyEmail = in.readString();
         companyName = in.readString();
-        password = in.readString();
-        asGuest = in.readByte() != 0;
-        phone = in.readString();
+        officers = in.createStringArrayList();
     }
 
     public static final Creator<Business> CREATOR = new Creator<Business>() {
@@ -47,28 +39,54 @@ public class Business implements Parcelable {
         }
     };
 
-    public String getPassword(){
-        return password;
-    }
-
-    public void getCompanyName(String companyName){
-        this.companyName = companyName;
-    }
-
     public String getCompanyName(){
         return companyName;
     }
 
-    public void setPhone(String phone){
-        this.phone = phone;
+    public void setCompanyName(String companyName){
+        this.companyName = companyName;
     }
 
-    public String getPhone(){
-        return phone;
+    public void setOfficers(ArrayList<String> officers){
+        this.officers = officers;
     }
 
-    public boolean isGuest(){
-        return asGuest;
+    public int getOfficerSize(){
+        if(officers == null){
+            return -1;
+        }
+        return officers.size();
+    }
+
+    public String getOfficer(int i){
+        return officers.get(i);
+    }
+
+    public boolean addOfficer(String first, String last){
+        String s = first + " " + last;
+        if(officers.contains(s)){
+            return false;
+        }
+        else{
+            officers.add(s);
+            return true;
+        }
+    }
+
+    public void removeOfficer(String first, String last){
+        String s = first + " " + last;
+        for(int i = 0; i < officers.size(); i++){
+            if(officers.get(i).equals(s)){
+                officers.remove(i);
+            }
+        }
+    }
+
+    public ArrayList<String> getOfficers(){
+        if(officers == null){
+            return null;
+        }
+        return officers;
     }
 
     @Override
@@ -78,10 +96,7 @@ public class Business implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(companyEmail);
         dest.writeString(companyName);
-        dest.writeString(password);
-        dest.writeByte((byte) (asGuest ? 1 : 0));
-        dest.writeString(phone);
+        dest.writeStringList(officers);
     }
 }

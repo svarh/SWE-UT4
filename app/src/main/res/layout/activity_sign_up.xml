@@ -8,7 +8,7 @@
     tools:context=".SignUp">
 
     <TextView
-        android:id="@+id/textViewCreateAccount"
+        android:id="@+id/tvManageOfficers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -22,7 +22,7 @@
         android:id="@+id/accountTypeSelect"
         android:layout_width="205dp"
         android:layout_height="41dp"
-        android:layout_below="@id/textViewCreateAccount"
+        android:layout_below="@id/tvManageOfficers"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp">
 

@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CARE">
-        <activity android:name=".AppointmentConfirmation"></activity>
-        <activity android:name=".scheduleAppointment" />
+
+        <activity android:name=".GuestExploreBusiness"></activity>
+        <activity android:name=".ManageBusinessOfficers" />
+
         <activity android:name=".Survey" />
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />
@@ -23,6 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CalenderActivity" />
+        <activity android:name=".AppointmentConfirmation"></activity>
+        <activity android:name=".scheduleAppointment" />
     </application>
 
 </manifest>
