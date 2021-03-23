@@ -44,6 +44,8 @@
     <!-- Strings for activity_survey -->
     <string name="survey_title">COVID-19 Survey</string>
     <string name="submit_button">Submit</string>
+
+
     <string name="explore_businesses">Explore Businesses</string>
     <string name="account_home">Account Home</string>
     <string name="manage_business_officers">Manage Business Officers</string>

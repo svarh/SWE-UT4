@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class ManageBusinessOfficers extends AppCompatActivity {
+public class ManageBusinessOfficers extends AppCompatActivity implements View.OnClickListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "MainActivity";
     private static Activity thisActivity = null;
@@ -48,11 +48,17 @@ public class ManageBusinessOfficers extends AppCompatActivity {
 
         setUI();
 
-        addOfficer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String firstName = firstNameText.getText().toString().trim();
-                String lastName = lastNameText.getText().toString().trim();
+    }
+
+    @Override
+    public void onClick(View view)
+    {
+        String firstName;
+        String lastName;
+        switch (view.getId()) {
+            case R.id.btnAddOfficer:
+                firstName = firstNameText.getText().toString().trim();
+                lastName = lastNameText.getText().toString().trim();
                 if(firstName.length() == 0 | lastName.length() == 0){
                     userModel.makeToast("Please provide a first and last name");
                 }
@@ -68,14 +74,11 @@ public class ManageBusinessOfficers extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
-            }
-        });
+                break;
 
-        removeOfficer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String firstName = firstNameText.getText().toString().trim();
-                String lastName = lastNameText.getText().toString().trim();
+            case R.id.btnRemoveOfficer:
+                firstName = firstNameText.getText().toString().trim();
+                lastName = lastNameText.getText().toString().trim();
                 if(firstName.length() == 0 | lastName.length() == 0){
                     userModel.makeToast("Please provide a first and last name");
                 }
@@ -87,18 +90,15 @@ public class ManageBusinessOfficers extends AppCompatActivity {
                     intent.putExtra("Business", business);
                     startActivity(intent);
                 }
-            }
-        });
+                break;
 
-        accountHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.btnAccountHome:
                 Intent intent = new Intent(ManageBusinessOfficers.this, BusinessHome.class);
                 intent.putExtra("BusinessAcc", businessAccount);
                 intent.putExtra("Business", business);
                 startActivity(intent);
-            }
-        });
+                break;
+        }
     }
 
     public void setUI(){
@@ -107,8 +107,11 @@ public class ManageBusinessOfficers extends AppCompatActivity {
         firstNameText = findViewById(R.id.etFirst);
         lastNameText = findViewById(R.id.etLast);
         addOfficer = findViewById(R.id.btnAddOfficer);
+        addOfficer.setOnClickListener(this);
         removeOfficer = findViewById(R.id.btnRemoveOfficer);
+        removeOfficer.setOnClickListener(this);
         accountHome = findViewById(R.id.btnAccountHome);
+        accountHome.setOnClickListener(this);
 
         RVOfficerAdapter adapter = new RVOfficerAdapter(business.getOfficers(), this);
         recyclerView.setAdapter(adapter);

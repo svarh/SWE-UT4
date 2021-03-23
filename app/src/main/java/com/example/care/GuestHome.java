@@ -89,20 +89,24 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     }
 
     private void surveyActivity(){
-        Intent i = new Intent(this, Survey.class);
-        startActivity(i);
+        Intent intent = new Intent(this, Survey.class);
+        intent.putExtra("User", guest);
+        startActivity(intent);
     }
 
     private void uploadResultsActivity(){
         Intent intent = new Intent(this, UploadResults.class);
+        intent.putExtra("User", guest);
         startActivity(intent);
     }
     private void scheduleApptActivity(){
         Intent intent = new Intent(this, scheduleAppointment.class);
+        intent.putExtra("User", guest);
         startActivity(intent);
     }
     private void calendarActivity(){
         Intent intent = new Intent(this, GuestCalendar.class);
+        intent.putExtra("User", guest);
         startActivity(intent);
     }
 
@@ -113,6 +117,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     }
     private void visitedBusinessActivity(){
         Intent intent = new Intent(this, GuestVisitedBusiness.class);
+        intent.putExtra("User", guest);
         startActivity(intent);
     }
 

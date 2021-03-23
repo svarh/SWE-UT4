@@ -7,6 +7,11 @@
     android:background="@color/background"
     tools:context=".SignUp">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle1"></View>
+
     <TextView
         android:id="@+id/tvManageOfficers"
         android:layout_width="wrap_content"

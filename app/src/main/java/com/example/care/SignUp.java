@@ -23,7 +23,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends AppCompatActivity implements View.OnClickListener {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "MainActivity";
 
@@ -79,10 +79,12 @@ public class SignUp extends AppCompatActivity {
                 nameInput.setHint("Company Name");
             }
         });
+    }
 
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.buttonSignUp:
                 hideKeyboard(v);
                 email = emailInput.getText().toString();
                 password = passwordInput.getText().toString();
@@ -99,8 +101,8 @@ public class SignUp extends AppCompatActivity {
                         }
                     }
                 }
-            }
-        });
+                break;
+        }
     }
 
     // This method sets up the UI
@@ -113,6 +115,7 @@ public class SignUp extends AppCompatActivity {
         guestCheck = findViewById(R.id.checkBoxGuest);
         businessCheck = findViewById(R.id.checkBoxBusiness);
         signUpButton = findViewById(R.id.buttonSignUp);
+        signUpButton.setOnClickListener(this);
     }
 
     // This method collects all inputs to it's corresponding variables and checks if they all have been filled in
@@ -212,4 +215,5 @@ public class SignUp extends AppCompatActivity {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
 }

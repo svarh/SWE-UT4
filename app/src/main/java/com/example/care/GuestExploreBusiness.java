@@ -11,22 +11,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
-public class GuestExploreBusiness extends AppCompatActivity {
+public class GuestExploreBusiness extends AppCompatActivity implements View.OnClickListener{
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "MainActivity";
     private static Activity thisActivity = null;
@@ -49,23 +43,28 @@ public class GuestExploreBusiness extends AppCompatActivity {
         getData();
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btnAccountHome:
+                Intent intent = new Intent(GuestExploreBusiness.this, GuestHome.class);
+                intent.putExtra("User", guest);
+                startActivity(intent);
+                userModel.makeToast("HOME");
+                break;
+        }
+    }
+
 
     public void setUI(){
         recyclerView = findViewById(R.id.rvExplore);
-        accountHome = findViewById(R.id.btnAccountHome2);
+        accountHome = findViewById(R.id.btnAccountHome);
+        accountHome.setOnClickListener(this);
 
         RVOfficerAdapter adapter = new RVOfficerAdapter(businessNames, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        accountHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GuestExploreBusiness.this, GuestHome.class);
-                intent.putExtra("User", guest);
-                startActivity(intent);
-            }
-        });
     }
 
     public void getData() {
@@ -89,4 +88,5 @@ public class GuestExploreBusiness extends AppCompatActivity {
         businessNames = list;
         setUI();
     }
+
 }

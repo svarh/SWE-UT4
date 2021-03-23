@@ -27,6 +27,7 @@
         <activity android:name=".AppointmentConfirmation"></activity>
         <activity android:name=".scheduleAppointment" />
         <activity android:name=".BusinessHome" />
+        <activity android:name=".GuestCalendar" />
     </application>
 
 </manifest>

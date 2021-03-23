@@ -5,7 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GuestCalendar"
-    android:background="@color/background">
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/bgRectangle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle1"
+        android:layout_marginBottom="75dp"></View>
+
+    <TextView
+        android:id="@+id/tvCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/calendar"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="35sp"
+        android:layout_marginTop="15dp"></TextView>
+
+    <CalendarView
+        android:id="@+id/guestCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@id/tvCalendar"
+        android:layout_marginTop="30dp"
+        ></CalendarView>
+
+    <Button
+        android:id="@+id/btnAccountHome"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guestCalendar"
+        android:layout_centerHorizontal="true"
+        android:background="@color/button_color"
+        android:text="@string/account_home"
+        android:textColor="@color/white"></Button>
 
 
 </RelativeLayout>

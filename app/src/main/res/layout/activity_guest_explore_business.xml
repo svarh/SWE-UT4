@@ -28,7 +28,7 @@
         ></androidx.recyclerview.widget.RecyclerView>
 
     <Button
-        android:id="@+id/btnAccountHome2"
+        android:id="@+id/btnAccountHome"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/rvExplore"
