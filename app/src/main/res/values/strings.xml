@@ -53,5 +53,7 @@
     <string name="remove_officer">Remove Officer</string>
     <string name="businessname">Business Name</string>
     <string name="firstname_lastname">First Name Last Name</string>
+    <string name="bus_appts">View Potential Appointments</string>
+    <string name="manage_officers">Manage Officers</string>
 
 </resources>
