@@ -1,12 +1,13 @@
 package com.example.care;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class GuestHome extends AppCompatActivity implements View.OnClickListener {
 
@@ -93,7 +94,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         startActivity(intent);
     }
     private void scheduleApptActivity(){
-        Intent intent = new Intent(this, GuestAppointments.class);
+        Intent intent = new Intent(this, scheduleAppointment.class);
         startActivity(intent);
     }
     private void calendarActivity(){

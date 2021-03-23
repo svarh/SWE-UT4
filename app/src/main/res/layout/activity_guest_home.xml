@@ -89,7 +89,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/my_button"
-        android:text="@string/view_covid_results_btn"
+        android:text="View Covid Result"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:layout_constraintHorizontal_bias="0.813"

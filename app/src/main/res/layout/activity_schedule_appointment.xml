@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".scheduleAppointment">
+
+    <View
+        android:id="@+id/backgroundRectangle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="-1dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/rectangle1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ScheduleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="30dp"
+                android:text="Schedule an Appointment"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/my_button"
+                android:text="Select an organization"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <Spinner
+                android:id="@+id/orgSpinner"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:dropDownWidth="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnGoCalendar"
+                android:layout_width="match_parent"
+                android:background="@drawable/my_button"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="Select an available date"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/getTimeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/my_button"
+                android:text="Get Available Time"
+                android:textAlignment="center"
+                android:textColor="@color/cardview_light_background" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button1"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:text="8:00 AM"
+                android:textColorLink="#FFFFFF" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button2"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="8:30 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button3"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="9:00 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button4"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="9:30 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button5"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="10:00 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button6"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="10:30 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button7"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="11:00 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button8"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="11:30 AM" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/button9"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#4CAF50"
+                android:layout_height="wrap_content"
+                android:text="12:00 PM" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
