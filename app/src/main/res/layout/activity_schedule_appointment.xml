@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:text="8:00 AM"
+                android:text="9:00 AM"
                 android:textColorLink="#FFFFFF" />
 
             <Button
@@ -114,7 +114,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="8:30 AM" />
+                android:text="10:00 AM" />
 
             <Button
                 android:visibility="gone"
@@ -124,7 +124,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="9:00 AM" />
+                android:text="11:00 AM" />
 
             <Button
                 android:visibility="gone"
@@ -134,7 +134,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="9:30 AM" />
+                android:text="12:00 PM" />
 
             <Button
                 android:visibility="gone"
@@ -144,7 +144,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="10:00 AM" />
+                android:text="1:00 PM" />
 
             <Button
                 android:visibility="gone"
@@ -154,7 +154,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="10:30 AM" />
+                android:text="2:00 PM" />
 
             <Button
                 android:visibility="gone"
@@ -164,7 +164,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="11:00 AM" />
+                android:text="3:00 PM" />
 
             <Button
                 android:visibility="gone"
@@ -174,7 +174,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="11:30 AM" />
+                android:text="4:00 PM" />
 
             <Button
                 android:visibility="gone"
@@ -184,7 +184,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:layout_height="wrap_content"
-                android:text="12:00 PM" />
+                android:text="5:00 PM" />
 
 
 
