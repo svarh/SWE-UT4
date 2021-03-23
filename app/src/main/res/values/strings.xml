@@ -60,5 +60,7 @@
     <string name="covid_survey_results">Covid Survey Results</string>
     <string name="date_result">Date - Result</string>
     <string name="businesses_visited">Businesses Visited</string>
+    <string name="scheduled_appointments">Scheduled Appointments</string>
+    <string name="scheduled_appointment_layout">Officer: Date, Time, Guest</string>
 
 </resources>

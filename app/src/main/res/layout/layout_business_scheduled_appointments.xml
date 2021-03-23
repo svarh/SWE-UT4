@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:padding="15dp"
+    android:id="@+id/visited_parentLayout">
+
+    <TextView
+        android:id="@+id/tvAppointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scheduled_appointment_layout"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        ></TextView>
+
+</RelativeLayout>
