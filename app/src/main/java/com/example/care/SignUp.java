@@ -86,11 +86,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         switch(v.getId()){
             case R.id.buttonSignUp:
                 hideKeyboard(v);
-                email = emailInput.getText().toString();
-                password = passwordInput.getText().toString();
-                confirmPass = confirmPasswordInput.getText().toString();
-                name = nameInput.getText().toString();
-                phoneNumb = phoneInput.getText().toString();
+                email = emailInput.getText().toString().trim();
+                password = passwordInput.getText().toString().trim();
+                confirmPass = confirmPasswordInput.getText().toString().trim();
+                name = nameInput.getText().toString().trim();
+                phoneNumb = phoneInput.getText().toString().trim();
                 if(!guestCheck.isChecked() & !businessCheck.isChecked()){
                     userModel.makeToast("Please select an account type");
                 }

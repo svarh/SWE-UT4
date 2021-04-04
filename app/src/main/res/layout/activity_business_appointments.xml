@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BusinessAppointments">
+
+    <View
+        android:id="@+id/bgRectangle2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle2"
+        ></View>
+
+    <View
+        android:id="@+id/bgRectangle1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle1"
+        android:rotation="180"></View>
+
+    <TextView
+        android:id="@+id/tvScehduledAppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/scheduled_appointments"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        ></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvScheduledAppt"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@id/tvScehduledAppt"
+        android:layout_marginTop="30dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnAccountHome"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/button_color"
+        android:layout_below="@id/rvScheduledAppt"
+        android:layout_marginTop="15dp"
+        android:text="@string/account_home"
+        android:textColor="@color/white"
+        ></Button>
+
+</RelativeLayout>

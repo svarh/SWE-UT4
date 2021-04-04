@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,10 +28,14 @@ public class Survey extends AppCompatActivity {
     private int numberOfNo;
     private int numberOfYes;
 
+    private GuestAccount guest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey_2);
+
+        guest = getIntent().getExtras().getParcelable("User");
 
         initUI();
 
@@ -71,6 +76,9 @@ public class Survey extends AppCompatActivity {
                     }
                 }
                 Toast.makeText(thisActivity, "Yes: " + numberOfYes + " No: " + numberOfNo ,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Survey.this, GuestHome.class);
+                intent.putExtra("User", guest);
+                startActivity(intent);
             }
         });
     }

@@ -78,7 +78,7 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         startActivity(intent);
     }
     private void calendarActivity(){
-        Intent intent = new Intent(this, CalenderActivity.class);
+        Intent intent = new Intent(this, BusinessCalendar.class);
         intent.putExtra("BusinessAcc", businessAccount);
         intent.putExtra("Business", business);
         startActivity(intent);
