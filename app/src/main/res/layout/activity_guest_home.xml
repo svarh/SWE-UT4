@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <View
+   <View
         android:id="@+id/guestLines"
         android:layout_width="56dp"
         android:layout_height="32dp"
@@ -67,37 +67,87 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCARE" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/btnTakeSurvey"
         android:layout_width="118dp"
         android:layout_height="115dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/my_button"
-        android:text="@string/covid_survey"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgShield" />
+        app:layout_constraintTop_toBottomOf="@+id/imgShield"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
+        <ImageView
+            android:id="@+id/btnTakeSurveyIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/survey"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnTakeSurveyText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/covid_survey"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btnCovidResults"
         android:layout_width="118dp"
         android:layout_height="115dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/my_button"
-        android:text="View Covid Result"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgShield" />
+        app:layout_constraintTop_toBottomOf="@+id/imgShield"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
+        <ImageView
+            android:id="@+id/btnCovidResultsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/test_results"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnCovidResultsText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="View Covid Result"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btnScheduleAppts"
         android:layout_width="118dp"
         android:layout_height="115dp"
@@ -105,58 +155,158 @@
         android:layout_marginTop="52dp"
         android:layout_marginRight="-231dp"
         android:background="@drawable/my_button"
-        android:text="@string/schedule_appt"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTakeSurvey" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTakeSurvey"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
+        <ImageView
+            android:id="@+id/btnScheduleApptsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/appointment"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnScheduleApptsText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/schedule_appt"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btnCalendar"
         android:layout_width="118dp"
         android:layout_height="115dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/my_button"
-        android:text="@string/calendar"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCovidResults" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCovidResults"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
+        <ImageView
+            android:id="@+id/btnCalendarIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/calendar"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnCalendarText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/calendar"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btnExploreBusiness"
         android:layout_width="118dp"
         android:layout_height="115dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/my_button"
-        android:text="@string/explore_business"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnScheduleAppts" />
+        app:layout_constraintTop_toBottomOf="@+id/btnScheduleAppts"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
+        <ImageView
+            android:id="@+id/btnExploreBusinessIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/explorer"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnExploreBusinessText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/explore_business"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btnBusinessVisited"
         android:layout_width="118dp"
         android:layout_height="115dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/my_button"
-        android:text="@string/business_visited"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintHorizontal_bias="0.809"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalendar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalendar"
+        android:orientation="vertical"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/btnBusinessVisitedIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/visits"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnBusinessVisitedText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/business_visited"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

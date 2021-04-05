@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +14,12 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
 
     static Activity thisActivity = null;
 
-    private Button btnTakeSurvey = null;
-    private Button btnCovidResults = null;
-    private Button btnScheduleAppts = null;
-    private Button btnCalendar = null;
-    private Button btnExploreBusiness = null;
-    private Button btnBusinessVisited = null;
+    private LinearLayout btnTakeSurvey = null;
+    private LinearLayout btnCovidResults = null;
+    private LinearLayout btnScheduleAppts = null;
+    private LinearLayout btnCalendar = null;
+    private LinearLayout btnExploreBusiness = null;
+    private LinearLayout btnBusinessVisited = null;
 
     private GuestAccount guest;
 
