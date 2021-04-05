@@ -67,47 +67,127 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewCARE" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/btnAppointments"
         android:layout_width="118dp"
         android:layout_height="115dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="48dp"
-        android:background="@drawable/my_button"
         android:elevation="4dp"
-        android:text="@string/bus_appts"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:background="@drawable/my_button"
+        android:clickable="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgShield" />
+        app:layout_constraintTop_toBottomOf="@+id/imgShield"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
+        <ImageView
+            android:id="@+id/btnAppointmentsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/appointment"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnAppointmentsText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/bus_appts"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/btnManageOfficers"
         android:layout_width="118dp"
         android:layout_height="115dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="28dp"
+        android:elevation="4dp"
         android:background="@drawable/my_button"
-        android:text="@string/manage_officers"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAppointments" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAppointments"
+        android:orientation="vertical"
+        android:focusable="true">
 
-    <Button
-        android:id="@+id/btnCalendar"
+        <ImageView
+            android:id="@+id/btnManageOfficersIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/officer"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnManageOfficersText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/manage_officers"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnCalendarBusiness"
         android:layout_width="118dp"
         android:layout_height="115dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="28dp"
+        android:elevation="4dp"
         android:background="@drawable/my_button"
-        android:text="@string/calendar"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:clickable="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnManageOfficers" />
+        app:layout_constraintTop_toBottomOf="@+id/btnManageOfficers"
+        android:orientation="vertical"
+        android:focusable="true">
 
+        <ImageView
+            android:id="@+id/btnCalendarBusinessIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/calendar"
+            app:tint="@color/white"/>
+
+        <TextView
+            android:id="@+id/btnCalendarBusinessText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/calendar"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

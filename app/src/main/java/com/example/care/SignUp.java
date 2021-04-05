@@ -86,7 +86,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         switch(v.getId()){
             case R.id.buttonSignUp:
                 hideKeyboard(v);
-                email = emailInput.getText().toString().trim();
+                email = emailInput.getText().toString().trim().toLowerCase();
                 password = passwordInput.getText().toString().trim();
                 confirmPass = confirmPasswordInput.getText().toString().trim();
                 name = nameInput.getText().toString().trim();

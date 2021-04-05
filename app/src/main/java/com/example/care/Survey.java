@@ -33,7 +33,7 @@ public class Survey extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_survey_2);
+        setContentView(R.layout.activity_survey);
 
         guest = getIntent().getExtras().getParcelable("User");
 
