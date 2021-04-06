@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -86,7 +88,6 @@ public class Survey extends AppCompatActivity {
     // Method to get the list of questions
     public ArrayList<Questions> getQuestions() {
 
-        // TODO: Get the list of questions and delete the dummies
         ArrayList<Questions> arr = new ArrayList<>();
         Questions q1 = new Questions(1,
                 "Have you experienced any of the following symptoms in the past 48 hours:",
