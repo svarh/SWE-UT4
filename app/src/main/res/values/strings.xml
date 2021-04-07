@@ -45,6 +45,8 @@
     <string name="survey_title">COVID-19 Survey</string>
     <string name="submit_button">Submit</string>
 
+    <!-- Strings for confirmation code -->
+    <string name="confirmation_code"></string>
 
     <string name="explore_businesses">Explore Businesses</string>
     <string name="account_home">Account Home</string>

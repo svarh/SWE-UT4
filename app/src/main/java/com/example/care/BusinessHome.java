@@ -5,15 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class BusinessHome extends Activity implements View.OnClickListener {
 
     static Activity thisActivity = null;
 
-    private Button btnAppointments = null;
-    private Button btnManageOfficers = null;
-    private Button btnCalendar = null;
+    private LinearLayout btnAppointments = null;
+    private LinearLayout btnCheckin = null;
+    private LinearLayout btnManageOfficers = null;
+    private LinearLayout btnCalendar = null;
 
    private BusinessAccount businessAccount;
    private Business business;
@@ -22,14 +24,17 @@ public class BusinessHome extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
 
-            case R.id.btnAppointments:
+            case R.id.btnBusinessAppointment:
                 viewAppointmentsActivity(); //Survey Activity
                 break;
-            case R.id.btnManageOfficers:
+            case R.id.btnBusinessManageOfficer:
                 manageOfficersActivity(); //Upload Activity
                 break;
-            case R.id.btnCalendar:
+            case R.id.btnBusinessCalendar:
                 calendarActivity(); //Schedule Appointments Activity
+                break;
+            case R.id.btnBusinessCheckIn:
+                checkinActivity(); //Schedule Appointments Activity
                 break;
 
         }
@@ -41,13 +46,14 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         thisActivity = this;
 
         // Initialize buttons
-        this.btnAppointments = findViewById(R.id.btnAppointments);
+        this.btnAppointments = findViewById(R.id.btnBusinessAppointment);
         this.btnAppointments.setOnClickListener(this);
-        this.btnManageOfficers = findViewById(R.id.btnManageOfficers);
+        this.btnManageOfficers = findViewById(R.id.btnBusinessManageOfficer);
         this.btnManageOfficers.setOnClickListener(this);
-        this.btnCalendar = findViewById(R.id.btnCalendar);
+        this.btnCalendar = findViewById(R.id.btnBusinessCalendar);
         this.btnCalendar.setOnClickListener(this);
-
+        this.btnCheckin = findViewById(R.id.btnBusinessCheckIn);
+        this.btnCheckin.setOnClickListener(this);
 
     }
     @Override
@@ -82,6 +88,10 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         intent.putExtra("BusinessAcc", businessAccount);
         intent.putExtra("Business", business);
         startActivity(intent);
+    }
+
+    private void checkinActivity(){
+        // TODO: Check in activity class
     }
 
 }

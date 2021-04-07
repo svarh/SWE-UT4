@@ -11,9 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 
 public class Survey extends AppCompatActivity {
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     static Activity thisActivity = null;
 
@@ -82,31 +88,30 @@ public class Survey extends AppCompatActivity {
     // Method to get the list of questions
     public ArrayList<Questions> getQuestions() {
 
-        // TODO: Get the list of questions and delete the dummies
         ArrayList<Questions> arr = new ArrayList<>();
         Questions q1 = new Questions(1,
                 "Have you experienced any of the following symptoms in the past 48 hours:",
-                "- fever or chills \n- cough \n- shortness of breath or difficulty breathing \n- fatigue \n- muscle or body aches \n- headache \n- new loss of taste or smell \n- sore throat \n- congestion or runny nose \n- nausea or vomiting \n- diarrhe"
+                "- fever or chills \n- cough \n- shortness of breath or difficulty breathing \n- fatigue \n- muscle or body aches \n- headache \n- new loss of taste or smell \n- sore throat \n- congestion or runny nose \n- nausea or vomiting \n- diarrhea"
         );
         Questions q2 = new Questions(2,
                 "Have you been in close physical contact in the last 14 days with:",
                 "- Anyone who is known to have laboratory-confirmed COVID-19? \n    OR \n- Anyone who has any symptoms consistent with COVID-19?"
         );
         Questions q3 = new Questions(3,
-                "Have you experienced any of the following symptoms in the past 48 hours:",
-                "- fever or chills \n- cough \n- shortness of breath or difficulty breathing \n- fatigue \n- muscle or body aches \n- headache \n- new loss of taste or smell \n- sore throat \n- congestion or runny nose \n- nausea or vomiting \n- diarrhe"
+                "Are you isolating or quarantining because you may have been exposed to a person with COVID-19 or are worried that you may be sick with COVID-19?",
+                ""
         );
         Questions q4 = new Questions(4,
-                "Have you been in close physical contact in the last 14 days with:",
-                "- Anyone who is known to have laboratory-confirmed COVID-19? \n    OR \n- Anyone who has any symptoms consistent with COVID-19?"
+                "Are you currently waiting on the results of a COVID-19 test?",
+                ""
         );
         Questions q5 = new Questions(5,
-                "Have you experienced any of the following symptoms in the past 48 hours:",
-                "- fever or chills \n- cough \n- shortness of breath or difficulty breathing \n- fatigue \n- muscle or body aches \n- headache \n- new loss of taste or smell \n- sore throat \n- congestion or runny nose \n- nausea or vomiting \n- diarrhe"
+                "Have you traveled in the past 10 days?",
+                ""
         );
         Questions q6 = new Questions(6,
-                "Have you been in close physical contact in the last 14 days with:",
-                "- Anyone who is known to have laboratory-confirmed COVID-19? \n    OR \n- Anyone who has any symptoms consistent with COVID-19?"
+                "By hitting submit I certify that my responses are true and correct",
+                ""
         );
 
         arr.add(q1);
