@@ -14,7 +14,6 @@ public class Business implements Parcelable {
     public Business(String companyName){
         this.companyName = companyName;
         this.officers = new ArrayList<>();
-        //this.officers.add("First Last");
     }
 
     public Business(String companyName, ArrayList officers){
