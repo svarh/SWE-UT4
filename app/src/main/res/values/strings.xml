@@ -65,4 +65,19 @@
     <string name="scheduled_appointments">Scheduled Appointments</string>
     <string name="scheduled_appointment_layout">Officer: Date, Time, Guest</string>
 
+    <!-- Strings for activity_check_in -->
+    <string name="check_in">Check In</string>
+    <string name="search_by_email">Search by email</string>
+    <string name="search_by_code">Search by confirmation code</string>
+    <string name="appointment_detail">Appointment Detail</string>
+    <string name="title_activity_check_in_guest">CheckInGuest</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
 </resources>

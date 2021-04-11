@@ -55,6 +55,10 @@ public class UserModel{
             case 5:
                 notification = this.activity.getString(R.string.phone_invalid);
                 break;
+
+            case 6:
+                notification = "Passwords do not match";
+                break;
         }
         Toast.makeText(this.activity, notification, Toast.LENGTH_SHORT).show();
     }
@@ -95,7 +99,7 @@ public class UserModel{
 
         //Passwords do not match
         if(!password.equals(confirmPass)){
-            setNotification(4);
+            setNotification(6);
             return false;
         }
 

@@ -34,7 +34,7 @@ public class BusinessHome extends Activity implements View.OnClickListener {
                 calendarActivity(); //Schedule Appointments Activity
                 break;
             case R.id.btnBusinessCheckIn:
-                checkinActivity(); //Schedule Appointments Activity
+                checkInActivity(); // Check in guest
                 break;
 
         }
@@ -90,8 +90,11 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         startActivity(intent);
     }
 
-    private void checkinActivity(){
-        // TODO: Check in activity class
+    private void checkInActivity(){
+        Intent intent = new Intent(this, CheckInGuest.class);
+        intent.putExtra("BusinessAcc", businessAccount);
+        intent.putExtra("Business", business);
+        startActivity(intent);
     }
 
 }

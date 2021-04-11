@@ -34,6 +34,7 @@ public class ManageBusinessOfficers extends AppCompatActivity implements View.On
     private Business business;
     private BusinessAccount businessAccount;
     private UserModel userModel;
+    private Officer officer;
     private ArrayList<String> officerNames = new ArrayList<>();
 
     @Override
@@ -68,6 +69,8 @@ public class ManageBusinessOfficers extends AppCompatActivity implements View.On
                     }
                     else {
                         saveData();
+                        officer = new Officer(firstName, lastName, business.getCompanyName());
+                        saveOfficer();
                         Intent intent = new Intent(ManageBusinessOfficers.this, ManageBusinessOfficers.class);
                         intent.putExtra("BusinessAcc", businessAccount);
                         intent.putExtra("Business", business);
@@ -85,6 +88,8 @@ public class ManageBusinessOfficers extends AppCompatActivity implements View.On
                 else {
                     business.removeOfficer(firstName, lastName);
                     saveData();
+                    officer = new Officer(firstName, lastName, business.getCompanyName());
+                    removeOfficer();
                     Intent intent = new Intent(ManageBusinessOfficers.this, ManageBusinessOfficers.class);
                     intent.putExtra("BusinessAcc", businessAccount);
                     intent.putExtra("Business", business);
@@ -135,5 +140,37 @@ public class ManageBusinessOfficers extends AppCompatActivity implements View.On
                 });
     }
 
+    private void saveOfficer() {
+        db.collection("Businesses").document(business.getCompanyName()).collection("OfficersList").document(officer.getName())
+                .set(officer)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                       @Override
+                       public void onSuccess(Void aVoid) {
+                           Log.d(TAG, "DocumentSnapshot successfully written!");
+                       }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
 
+    private void removeOfficer() {
+        db.collection("Businesses").document(business.getCompanyName()).collection("OfficersList").document(officer.getName())
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
 }

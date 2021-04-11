@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CARE">
-        <activity android:name=".BusinessAppointments"></activity>
+        <activity
+            android:name=".CheckInGuest"
+            android:label="@string/title_activity_check_in_guest"
+            android:theme="@style/Theme.CARE.NoActionBar"></activity>
+        <activity android:name=".BusinessAppointments" />
         <activity android:name=".BusinessCalendar" />
         <activity android:name=".GuestVisitedBusiness" />
         <activity android:name=".GuestCovidResults" />
