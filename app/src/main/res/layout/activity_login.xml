@@ -27,8 +27,6 @@
         android:layout_marginBottom="-80dp"
         android:background="@drawable/circle2" />
 
-
-
     <TextView
         android:id="@+id/tvManageOfficers"
         android:layout_width="wrap_content"
