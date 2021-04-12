@@ -36,7 +36,7 @@ public class scheduleAppointment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_appointment);
 
-        //create organization spinner from array
+        //create organization spinner from organizations array
         Spinner orgSpinner = (Spinner) findViewById(R.id.orgSpinner);
         List<String> organizations = new ArrayList<>();//holds company names
 
