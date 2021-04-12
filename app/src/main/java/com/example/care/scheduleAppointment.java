@@ -8,10 +8,22 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class scheduleAppointment extends AppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class scheduleAppointment extends AppCompatActivity {
+    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+    CollectionReference subjectsRef = rootRef.collection("Businesses");
     private static final String TAG = "scheduleAppointment";
 
     private TextView theDate;
@@ -25,16 +37,29 @@ public class scheduleAppointment extends AppCompatActivity {
         setContentView(R.layout.activity_schedule_appointment);
 
         //create organization spinner from array
-        String colors[] = {"Organization 1","Organization 2","Organization 3"};
         Spinner orgSpinner = (Spinner) findViewById(R.id.orgSpinner);
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, colors);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+        List<String> organizations = new ArrayList<>();//holds company names
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),   android.R.layout.simple_spinner_item, organizations);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orgSpinner.setAdapter(spinnerArrayAdapter);
+        subjectsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String organization = document.getString("companyName");
+                        organizations.add(organization);
+                    }
+                    spinnerArrayAdapter.notifyDataSetChanged();
+                }
+            }
+        });
 
         //direct user to calender
         theDate = (TextView) findViewById(R.id.date);
         btnGoCalendar = (Button) findViewById(R.id.btnGoCalendar);
-
+        //display selected date from calender
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
         theDate.setText(date);
