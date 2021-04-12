@@ -3,12 +3,23 @@ package com.example.care;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class GuestHome extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +33,13 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     private LinearLayout btnBusinessVisited = null;
 
     private GuestAccount guest;
+
+    DrawerLayout drawer;
+    Toolbar toolbar;
+    NavigationView navigationView;
+    ActionBarDrawerToggle toggle;
+
+
 
     @Override
     public void onClick(View v) {
@@ -81,6 +99,45 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
 
         initialize();
 
+        drawer=findViewById(R.id.drawer);
+        toolbar=findViewById(R.id.toolBar);
+
+        setSupportActionBar(toolbar);
+
+        toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close);
+        drawer.addDrawerListener(toggle);
+
+        toggle.syncState();
+
+        navigationView=findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id=menuItem.getItemId();
+                Fragment fragment=null;
+                switch (id) {
+                    case R.id.profile:
+                        fragment=new GuestProfileFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.settings:
+                        fragment=new SettingsFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.help:
+                        fragment=new HelpFragment();
+                        loadFragment(fragment);
+                        break;
+                    case R.id.logout:
+//                        fragment=new LogoutFragment();
+//                        loadFragment(fragment);
+                        loginActivity();
+                        break;
+                }
+                return true;
+            }
+        });
+
     }
 
 
@@ -120,6 +177,19 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         Intent intent = new Intent(this, GuestVisitedBusiness.class);
         intent.putExtra("User", guest);
         startActivity(intent);
+    }
+
+    private void loadFragment(Fragment fragment)
+    {
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame,fragment).commit();
+        drawer.closeDrawer(GravityCompat.START);
+        fragmentTransaction.addToBackStack(null);
+    }
+    private void loginActivity(){
+        Intent i = new Intent(this, Login.class);
+        startActivity(i);
     }
 
 }

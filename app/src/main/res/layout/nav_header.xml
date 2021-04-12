@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="400dp"
+    android:layout_marginBottom="-40dp"
+    android:background="#7FBEAB"
+    android:padding="16dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/personIcon"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="35dp"
+        android:adjustViewBounds="true"
+
+        android:src="@drawable/person_icon" />
+
+    <TextView
+        android:id="@+id/nameFirst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/personIcon"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="-55dp"
+        android:fontFamily="@font/roboto_bold"
+        android:paddingBottom="-20dp"
+        android:text="First Name"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/personIcon" />
+
+    <TextView
+        android:id="@+id/nameLast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/nameFirst"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="-71dp"
+        android:fontFamily="@font/roboto_bold"
+        android:paddingBottom="-20dp"
+        android:text="Last Name"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/nameFirst" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/nameLast"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="@font/roboto_bold"
+        android:paddingBottom="-20dp"
+        android:text="example@email.com"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/nameLast" />
+
+</RelativeLayout>
