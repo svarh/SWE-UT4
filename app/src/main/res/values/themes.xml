@@ -11,6 +11,10 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <item name= "drawerArrowStyle">@style/DrawerIcon</item>
+        <item name="android:divider">@drawable/menu_item_padding</item>
+        <item name="android:listDivider">@android:color/transparent</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -22,4 +26,17 @@
     <style name="Theme.CARE.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CARE.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextViewStyle" parent="android:Widget.TextView" >
+        <item name="android:fontFamily">@font/roboto_bold </item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle"
+        >
+        <item name="color">#6BA191</item>
+    </style>
+
+
 </resources>
