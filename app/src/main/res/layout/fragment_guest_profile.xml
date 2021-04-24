@@ -6,17 +6,71 @@
     android:background="@color/green"
     tools:context=".GuestProfileFragment">
 
+    <RelativeLayout
+        android:id="@+id/parentGuestProfileLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="68dp"
+        <TextView
+            android:id="@+id/tvGuestProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="@string/GuestProfile"
+            android:textColor="@color/white"
+            android:background="@color/button_color"
+            android:padding="15dp"
+            android:textSize="40dp"></TextView>
 
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginRight="150dp"
-        android:text="Guest profile"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="30dp" />
+        <TextView
+            android:id="@+id/tvGuestName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvGuestProfile"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="15dp"
+            android:text="@string/GuestName"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvGuestEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvGuestName"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="@string/GuestEmail"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvGuestEmail"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="@string/GuestPhoneNumber"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            ></TextView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPhoneNumber"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:text="@string/account_home"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/button_color"
+            ></Button>
+
+
+    </RelativeLayout>
 
 </FrameLayout>

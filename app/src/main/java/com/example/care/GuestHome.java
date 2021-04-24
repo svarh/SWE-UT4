@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,10 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     private LinearLayout btnCalendar = null;
     private LinearLayout btnExploreBusiness = null;
     private LinearLayout btnBusinessVisited = null;
+
+    private TextView firstName;
+    private TextView lastName;
+    private TextView email;
 
     private GuestAccount guest;
 
@@ -88,6 +93,13 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         this.btnBusinessVisited = findViewById(R.id.btnBusinessVisited);
         this.btnBusinessVisited.setOnClickListener(this);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        View headerView = navigationView.getHeaderView(0);
+
+        firstName = headerView.findViewById(R.id.nameFirst);
+        lastName = headerView.findViewById(R.id.nameLast);
+        email = headerView.findViewById(R.id.email);
+
     }
 
     @Override
@@ -137,6 +149,12 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
                 return true;
             }
         });
+
+        String name = guest.getName();
+        String [] fullName = name.split(" ");
+        firstName.setText(fullName[0]);
+        lastName.setText(fullName[1]);
+        email.setText(guest.getEmail());
 
     }
 
@@ -192,6 +210,9 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         startActivity(i);
     }
 
+    public GuestAccount getGuest() {
+        return guest;
+    }
 }
 
 

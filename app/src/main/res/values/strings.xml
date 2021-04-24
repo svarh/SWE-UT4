@@ -84,5 +84,11 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <!-- GuestProfileFragment -->
+    <string name="GuestProfile">Guest Profile</string>
+    <string name="GuestName">Guest Name</string>
+    <string name="GuestEmail">Guest Email</string>
+    <string name="GuestPhoneNumber">Guest Phone Number</string>
+
 
 </resources>
