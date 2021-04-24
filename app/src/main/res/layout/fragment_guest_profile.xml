@@ -60,15 +60,15 @@
             ></TextView>
 
         <Button
+            android:id="@+id/btnAccountHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvPhoneNumber"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="300dp"
-            android:text="@string/account_home"
-            android:textColor="@color/white"
             android:backgroundTint="@color/button_color"
-            ></Button>
+            android:text="@string/account_home"
+            android:textColor="@color/white"></Button>
 
 
     </RelativeLayout>

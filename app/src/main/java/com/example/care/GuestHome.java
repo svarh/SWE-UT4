@@ -38,6 +38,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     private TextView email;
 
     private GuestAccount guest;
+    private static GuestAccount transferGuest;
 
     DrawerLayout drawer;
     Toolbar toolbar;
@@ -99,6 +100,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         firstName = headerView.findViewById(R.id.nameFirst);
         lastName = headerView.findViewById(R.id.nameLast);
         email = headerView.findViewById(R.id.email);
+
+        transferGuest = guest;
 
     }
 
@@ -210,8 +213,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         startActivity(i);
     }
 
-    public GuestAccount getGuest() {
-        return guest;
+    public static GuestAccount getGuest() {
+        return transferGuest;
     }
 }
 
