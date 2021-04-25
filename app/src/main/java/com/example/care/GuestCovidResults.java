@@ -32,6 +32,8 @@ public class GuestCovidResults extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_guest_covid_results);
 
         this.userModel = new UserModel(this);
+        userModel.hideStatusBar();
+
         guest = getIntent().getExtras().getParcelable("User");
 
         results.add("January 15, 2021 - Passed");

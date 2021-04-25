@@ -31,6 +31,7 @@ public class Survey extends AppCompatActivity {
     private int numberOfYes;
 
     private GuestAccount guest;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,9 @@ public class Survey extends AppCompatActivity {
         setContentView(R.layout.activity_survey);
 
         guest = getIntent().getExtras().getParcelable("User");
+
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         initUI();
 

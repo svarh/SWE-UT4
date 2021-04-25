@@ -55,6 +55,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         setUI();
         thisActivity = this;
         userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         guestCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

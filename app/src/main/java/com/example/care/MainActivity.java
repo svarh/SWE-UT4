@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnLogin = null;
     private Button btnSignUp = null;
 
+    private UserModel userModel;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Initialize Activity
         thisActivity = this;
+
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         // Initialize buttons
         this.btnLogin = findViewById(R.id.btnLogIn);

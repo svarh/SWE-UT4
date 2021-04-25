@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AppointmentConfirmation extends AppCompatActivity {
 
     private GuestAccount guest;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,9 @@ public class AppointmentConfirmation extends AppCompatActivity {
         setContentView(R.layout.activity_appointment_confirmation);
 
         guest = getIntent().getExtras().getParcelable("User");
+        userModel = new UserModel(this);
+
+        userModel.hideStatusBar();
 
         if (getIntent().hasExtra("com.example.care.Date")){
             TextView confirmationDateTv = (TextView) findViewById(R.id.confirmationDateTv);

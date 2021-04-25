@@ -1,21 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green"
     tools:context=".HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvAboutTheApp"
         android:layout_width="wrap_content"
-        android:layout_height="68dp"
-
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginRight="150dp"
-        android:text="Help Section"
-        android:textAllCaps="true"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="About The App"
         android:textColor="@color/white"
-        android:textSize="30dp" />
-</FrameLayout>
+        android:textSize="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/button_color"
+        android:padding="5dp"
+        ></TextView>
+
+    <RelativeLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="525dp"
+        android:layout_below="@id/tvAboutTheApp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tvCARE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:text="CARE - "
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvCARE2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCARE"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:text="Covid Appointment Rapid Entry"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCARE2"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:text="Team UT4 - "
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvTeamNames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTeam"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:text="Mya Amos, Billy Lewis, \nSharon Varughese, Minh Nguyen, \nAndrew Vo, Princess Ugochukwu"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvCredits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTeamNames"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:text="Credits - "
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvCredits2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCredits"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:text="Icon made by Freepik from www.flaticon.com"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvAppsUsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCredits2"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:text="Applications Used - "
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvAppsUsed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvAppsUsed"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:text="Android Studio \nFigma"
+            ></TextView>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/infoLayout"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/button_color"
+        android:text="@string/account_home"></Button>
+
+</RelativeLayout>

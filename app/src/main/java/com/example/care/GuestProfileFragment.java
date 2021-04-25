@@ -25,6 +25,7 @@ public class GuestProfileFragment extends Fragment {
     private Button accountHome;
 
     private GuestAccount guest;
+    private UserModel userModel;
 
     private Activity guestHomeActivity;
 
@@ -68,6 +69,8 @@ public class GuestProfileFragment extends Fragment {
         }
 
         guest = GuestHome.getGuest();
+        userModel = new UserModel(getActivity());
+        userModel.hideStatusBar();
 
 
     }

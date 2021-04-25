@@ -20,7 +20,7 @@
             android:text="@string/GuestProfile"
             android:textColor="@color/white"
             android:background="@color/button_color"
-            android:padding="15dp"
+            android:padding="5dp"
             android:textSize="40dp"></TextView>
 
         <TextView

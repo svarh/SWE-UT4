@@ -38,6 +38,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     private TextView email;
 
     private GuestAccount guest;
+    private UserModel userModel;
     private static GuestAccount transferGuest;
 
     DrawerLayout drawer;
@@ -111,6 +112,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_guest_home);
 
         guest = getIntent().getExtras().getParcelable("User");
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         initialize();
 

@@ -1,6 +1,7 @@
 package com.example.care;
 
 import android.app.Activity;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -112,4 +113,10 @@ public class UserModel{
         return true;
     }
 
+    // Hide the status bar.
+    public void hideStatusBar(){
+        View decorView = activity.getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+    }
 }

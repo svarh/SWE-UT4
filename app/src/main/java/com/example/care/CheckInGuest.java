@@ -29,6 +29,8 @@ public class CheckInGuest extends AppCompatActivity implements View.OnClickListe
     private BusinessAccount businessAccount;
     private Business business;
 
+    private UserModel userModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,6 +39,9 @@ public class CheckInGuest extends AppCompatActivity implements View.OnClickListe
 
         businessAccount = getIntent().getExtras().getParcelable("BusinessAcc");
         business = getIntent().getExtras().getParcelable("Business");
+
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         this.thisActivity = this;
 
