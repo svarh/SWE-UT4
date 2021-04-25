@@ -22,7 +22,7 @@
     <RelativeLayout
         android:id="@+id/infoLayout"
         android:layout_width="match_parent"
-        android:layout_height="525dp"
+        android:layout_height="550dp"
         android:layout_below="@id/tvAboutTheApp"
         android:layout_marginTop="15dp">
 
@@ -46,7 +46,7 @@
             android:layout_marginLeft="15dp"
             android:textSize="25dp"
             android:textColor="@color/white"
-            android:text="Covid Appointment Rapid Entry"
+            android:text="An appointment scheduler with Covid-19 screening capabilities"
             ></TextView>
 
         <TextView

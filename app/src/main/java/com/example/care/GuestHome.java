@@ -147,8 +147,6 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
                         loadFragment(fragment);
                         break;
                     case R.id.logout:
-//                        fragment=new LogoutFragment();
-//                        loadFragment(fragment);
                         loginActivity();
                         break;
                 }
@@ -213,6 +211,7 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     }
     private void loginActivity(){
         Intent i = new Intent(this, Login.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
     }
 
