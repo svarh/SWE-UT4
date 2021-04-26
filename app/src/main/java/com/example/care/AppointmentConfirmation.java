@@ -15,6 +15,7 @@ public class AppointmentConfirmation extends AppCompatActivity {
     FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     CollectionReference businessesCollection = rootRef.collection("Businesses");
     private GuestAccount guest;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,12 @@ public class AppointmentConfirmation extends AppCompatActivity {
         setContentView(R.layout.activity_appointment_confirmation);
 
         guest = getIntent().getExtras().getParcelable("User");
+
+        userModel = new UserModel(this);
+
+        userModel.hideStatusBar();
         String organization = getIntent().getExtras().getString("organization");
+
 
         if (getIntent().hasExtra("date")){
             TextView confirmationDateTv = (TextView) findViewById(R.id.confirmationDateTv);

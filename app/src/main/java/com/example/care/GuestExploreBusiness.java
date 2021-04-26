@@ -39,6 +39,8 @@ public class GuestExploreBusiness extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_guest_explore_business);
 
         this.userModel = new UserModel(this);
+        userModel.hideStatusBar();
+
         guest = getIntent().getExtras().getParcelable("User");
         getData();
     }

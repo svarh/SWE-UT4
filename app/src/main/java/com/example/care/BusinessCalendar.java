@@ -26,6 +26,7 @@ public class BusinessCalendar extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_business_calendar);
 
         this.userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         business = getIntent().getExtras().getParcelable("Business");
         businessAccount = getIntent().getExtras().getParcelable("BusinessAcc");

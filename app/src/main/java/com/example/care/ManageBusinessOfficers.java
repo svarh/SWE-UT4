@@ -43,6 +43,7 @@ public class ManageBusinessOfficers extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_manage_business_officers);
 
         this.userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         business = getIntent().getExtras().getParcelable("Business");
         businessAccount = getIntent().getExtras().getParcelable("BusinessAcc");

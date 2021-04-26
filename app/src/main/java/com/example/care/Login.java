@@ -81,6 +81,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         this.password = "";
         this.isGuest = true;
         this.userModel = new UserModel(this.thisActivity);
+        userModel.hideStatusBar();
 
         // Initialize UI elements
         this.emailInput = findViewById(R.id.editTextEmail);

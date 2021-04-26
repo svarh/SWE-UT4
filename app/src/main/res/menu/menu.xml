@@ -12,10 +12,9 @@
             android:id="@+id/settings"
             />
         <item
-            android:title="Help"
-            android:icon="@drawable/help_icon"
             android:id="@+id/help"
-            />
+            android:icon="@drawable/help_icon"
+            android:title="About" />
         <item
             android:title="Logout"
             android:icon="@drawable/logout_icon"

@@ -15,6 +15,8 @@ import android.view.ViewGroup;
  */
 public class HelpFragment extends Fragment {
 
+    private UserModel userModel;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -53,6 +55,9 @@ public class HelpFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        userModel = new UserModel(getActivity());
+        userModel.hideStatusBar();
     }
 
     @Override

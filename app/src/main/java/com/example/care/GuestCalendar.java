@@ -17,6 +17,7 @@ public class GuestCalendar extends AppCompatActivity implements View.OnClickList
     private Button accountHome;
 
     private GuestAccount guest;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,9 @@ public class GuestCalendar extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_guest_calendar);
 
         guest = getIntent().getExtras().getParcelable("User");
+
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         setUI();
 

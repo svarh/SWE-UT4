@@ -38,6 +38,8 @@ public class GuestVisitedBusiness extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_guest_visited_business);
 
         this.userModel = new UserModel(this);
+        userModel.hideStatusBar();
+
         guest = getIntent().getExtras().getParcelable("User");
         getData();
     }

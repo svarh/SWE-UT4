@@ -19,6 +19,7 @@ public class BusinessHome extends Activity implements View.OnClickListener {
 
    private BusinessAccount businessAccount;
    private Business business;
+   private UserModel userModel;
 
     @Override
     public void onClick(View v) {
@@ -63,6 +64,9 @@ public class BusinessHome extends Activity implements View.OnClickListener {
 
         businessAccount = getIntent().getExtras().getParcelable("BusinessAcc");
         business = getIntent().getExtras().getParcelable("Business");
+
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         initialize();
 

@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,13 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     private LinearLayout btnExploreBusiness = null;
     private LinearLayout btnBusinessVisited = null;
 
+    private TextView firstName;
+    private TextView lastName;
+    private TextView email;
+
     private GuestAccount guest;
+    private UserModel userModel;
+    private static GuestAccount transferGuest;
 
     DrawerLayout drawer;
     Toolbar toolbar;
@@ -88,6 +95,15 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         this.btnBusinessVisited = findViewById(R.id.btnBusinessVisited);
         this.btnBusinessVisited.setOnClickListener(this);
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        View headerView = navigationView.getHeaderView(0);
+
+        firstName = headerView.findViewById(R.id.nameFirst);
+        lastName = headerView.findViewById(R.id.nameLast);
+        email = headerView.findViewById(R.id.email);
+
+        transferGuest = guest;
+
     }
 
     @Override
@@ -96,6 +112,8 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_guest_home);
 
         guest = getIntent().getExtras().getParcelable("User");
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         initialize();
 
@@ -129,14 +147,18 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
                         loadFragment(fragment);
                         break;
                     case R.id.logout:
-//                        fragment=new LogoutFragment();
-//                        loadFragment(fragment);
                         loginActivity();
                         break;
                 }
                 return true;
             }
         });
+
+        String name = guest.getName();
+        String [] fullName = name.split(" ");
+        firstName.setText(fullName[0]);
+        lastName.setText(fullName[1]);
+        email.setText(guest.getEmail());
 
     }
 
@@ -189,9 +211,13 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
     }
     private void loginActivity(){
         Intent i = new Intent(this, Login.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
     }
 
+    public static GuestAccount getGuest() {
+        return transferGuest;
+    }
 }
 
 

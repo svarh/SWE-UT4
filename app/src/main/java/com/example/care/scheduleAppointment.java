@@ -35,11 +35,16 @@ public class scheduleAppointment extends AppCompatActivity {
     private Button btnGoCalendar;
 
     private GuestAccount guest;
+    private UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_appointment);
+
+
+        userModel = new UserModel(this);
+        userModel.hideStatusBar();
 
         //create organization spinner/drop down menu from organizations array
         Spinner orgSpinner = (Spinner) findViewById(R.id.orgSpinner);
