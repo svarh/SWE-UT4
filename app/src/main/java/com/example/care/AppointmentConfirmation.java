@@ -106,7 +106,6 @@ public class AppointmentConfirmation extends AppCompatActivity {
     }
 
     public void updateBusiness(){
-        Business business = new Business("");
         DocumentReference docRef = rootRef.collection("Businesses").document(organization);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -116,9 +115,9 @@ public class AppointmentConfirmation extends AppCompatActivity {
                     if (document.exists()) {
                         Log.d(TAG, "Document exists!");
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        business.setCompanyName((String) document.getData().get("companyName"));
-                        business.setOfficers((ArrayList<String>) document.get("officers"));
-                        business.setAppointments((ArrayList<HashMap<String, String>>) document.get("appointments"));
+                        Business business = new Business((String) document.getData().get("companyName"), (ArrayList<String>) document.get("officers"), (ArrayList<HashMap<String, String>>) document.get("appointments"));
+                        business.makeAppointment(organization, officer, guest.getName(), date, time, confirmationCode);
+                        saveBusiness(business);
 
                     } else {
                         Toast.makeText(getApplicationContext(),"ERROR! Please try again!",Toast.LENGTH_SHORT).show();
@@ -131,8 +130,9 @@ public class AppointmentConfirmation extends AppCompatActivity {
             }
         });
 
-        business.makeAppointment(organization, officer, guest.getName(), date, time, confirmationCode);
+    }
 
+    public void saveBusiness(Business business){
         rootRef.collection("Businesses").document(organization)
                 .set(business)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -148,5 +148,4 @@ public class AppointmentConfirmation extends AppCompatActivity {
                     }
                 });
     }
-
 }

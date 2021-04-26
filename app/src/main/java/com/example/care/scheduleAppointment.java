@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -62,8 +63,7 @@ public class scheduleAppointment extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        String organization = document.getString("companyName");
-                        organizations.add(organization);
+                        organizations.add(document.getId());
                     }
                     spinnerArrayAdapter.notifyDataSetChanged();
                 }
@@ -77,6 +77,7 @@ public class scheduleAppointment extends AppCompatActivity {
         ArrayAdapter<String> officerArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),   android.R.layout.simple_spinner_item, officers);
         officerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         officerSpinner.setAdapter(officerArrayAdapter);
+
         businessesCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -99,6 +100,29 @@ public class scheduleAppointment extends AppCompatActivity {
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
         theDate.setText(date);
+
+        orgSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                officers.clear();
+                rootRef.collection("Businesses").document(spinnerArrayAdapter.getItem(position)).collection("OfficersList").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                officers.add(document.getId());
+                            }
+                            officerArrayAdapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         btnGoCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +176,19 @@ public class scheduleAppointment extends AppCompatActivity {
                         }
                     }
                 });
+
+
+                /*ArrayList<String> timeSlots = new ArrayList<String>();
+                timeSlots.add("9:00");
+                timeSlots.add("10:00");
+                timeSlots.add("11:00");
+                timeSlots.add("12:00");
+                timeSlots.add("1:00");
+                timeSlots.add("2:00");
+                timeSlots.add("3:00");
+                timeSlots.add("4:00");
+                addBtnInXML(timeSlots, organization, officer, date);
+                 */
             }
         });
 
