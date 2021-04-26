@@ -6,15 +6,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AppointmentConfirmation extends AppCompatActivity {
@@ -66,8 +72,9 @@ public class AppointmentConfirmation extends AppCompatActivity {
         confirmationCode = getIntent().getExtras().getString("confirmationCode");
 
         guest.makeAppointment(organization, officer, guest.getName(), date, time, confirmationCode);
-
         updateGuest();
+
+        updateBusiness();
 
        Button guestHomeBtn = (Button) findViewById(R.id.guestHomeBtn);
 
@@ -98,8 +105,48 @@ public class AppointmentConfirmation extends AppCompatActivity {
                 });
     }
 
-    public void getBusiness(){
+    public void updateBusiness(){
+        Business business = new Business("");
+        DocumentReference docRef = rootRef.collection("Businesses").document(organization);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "Document exists!");
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        business.setCompanyName((String) document.getData().get("companyName"));
+                        business.setOfficers((ArrayList<String>) document.get("officers"));
+                        business.setAppointments((ArrayList<HashMap<String, String>>) document.get("appointments"));
 
+                    } else {
+                        Toast.makeText(getApplicationContext(),"ERROR! Please try again!",Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Document does not exist!");
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(),"Error! Please Try Again.",Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Failed with: ", task.getException());
+                }
+            }
+        });
+
+        business.makeAppointment(organization, officer, guest.getName(), date, time, confirmationCode);
+
+        rootRef.collection("Businesses").document(organization)
+                .set(business)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
     }
 
 }

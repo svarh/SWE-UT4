@@ -117,8 +117,6 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
 
         initialize();
 
-        userModel.makeToast(guest.getPassword());
-
         drawer=findViewById(R.id.drawer);
         toolbar=findViewById(R.id.toolBar);
 
@@ -156,11 +154,11 @@ public class GuestHome extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        /*String name = guest.getName();
+        String name = guest.getName();
         String [] fullName = name.split(" ");
         firstName.setText(fullName[0]);
         lastName.setText(fullName[1]);
-        email.setText(guest.getEmail());*/
+        email.setText(guest.getEmail());
 
     }
 
