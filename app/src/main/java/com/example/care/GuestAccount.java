@@ -2,6 +2,7 @@ package com.example.care;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +13,7 @@ public class GuestAccount implements Parcelable {
     private boolean asGuest;
     private String name;
     private String phone;
-    private ArrayList<Appointment> appointments;
+    private ArrayList<HashMap<String, String>> appointments;
     private HashMap<Date, Boolean> covidResults;
 
     public GuestAccount(String email, String password) {
@@ -31,7 +32,17 @@ public class GuestAccount implements Parcelable {
         this.asGuest = true;
         this.name = name;
         this.phone = phone;
-        this.appointments = new ArrayList<>();
+        this.appointments = new ArrayList<HashMap<String, String>>();
+        this.covidResults = new HashMap<>();
+    }
+
+    public GuestAccount (String email, String password, String name, String phone, ArrayList<HashMap<String, String>> appointments){
+        this.email = email;
+        this.password = password;
+        this.asGuest = true;
+        this.name = name;
+        this.phone = phone;
+        this.appointments = appointments;
         this.covidResults = new HashMap<>();
     }
 
@@ -90,19 +101,28 @@ public class GuestAccount implements Parcelable {
         return asGuest;
     }
 
-    public void setAppointments(ArrayList<Appointment> appointments) {
+    public void setAppointments(ArrayList<HashMap<String, String>> appointments) {
         this.appointments = appointments;
     }
 
-    public ArrayList<Appointment> getAppointments() {
+    public ArrayList<HashMap<String, String>> getAppointments() {
         return appointments;
     }
 
-    public Appointment getAppointment(int i){
-        return appointments.get(i);
+    public void addAppointment(HashMap<String, String> appointment){
+        appointments.add(appointment);
     }
 
-    public void addAppointment(Appointment appointment){
+    public void makeAppointment(String organization, String officer, String guestName, String date, String time, String confirmation){
+        HashMap<String, String> appointment = new HashMap<String, String>(){{
+            put("Organization", organization);
+            put("Officer", officer);
+            put("Guest", guestName);
+            put("Date", date);
+            put("Time", time);
+            put("Confirmation", confirmation);
+        }};
+
         appointments.add(appointment);
     }
 

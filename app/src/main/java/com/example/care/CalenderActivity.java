@@ -15,11 +15,15 @@ public class CalenderActivity extends AppCompatActivity {
 
     private CalendarView mCalendarView;
 
+    private GuestAccount guest;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calender_layout);
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
+
+        guest = getIntent().getExtras().getParcelable("User");
 
         mCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -29,6 +33,7 @@ public class CalenderActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(CalenderActivity.this, scheduleAppointment.class);
                 intent.putExtra("date", date);
+                intent.putExtra("User", guest);
                 startActivity(intent);
             }
         });

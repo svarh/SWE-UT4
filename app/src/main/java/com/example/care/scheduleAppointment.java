@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -22,6 +24,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -42,8 +45,9 @@ public class scheduleAppointment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_appointment);
 
-
         userModel = new UserModel(this);
+        guest = getIntent().getExtras().getParcelable("User");
+
         userModel.hideStatusBar();
 
         //create organization spinner/drop down menu from organizations an array
@@ -100,6 +104,7 @@ public class scheduleAppointment extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(scheduleAppointment.this, CalenderActivity.class);
+                intent.putExtra("User", guest);
                 startActivity(intent);
             }
         });
@@ -178,6 +183,11 @@ public class scheduleAppointment extends AppCompatActivity {
                     startIntent.putExtra("time", buttonTime);
                     startIntent.putExtra("confirmationCode", confirmationCode);
                     startIntent.putExtra("User", guest);
+
+                    //guest.makeAppointment(organization, officer, date, buttonTime, confirmationCode);
+                    //userModel.makeToast("Appointment Reserved");
+                    //updateGuest();
+
                     startActivity(startIntent);
                 }
             });;
@@ -197,5 +207,7 @@ public class scheduleAppointment extends AppCompatActivity {
         String confirmationCode = salt.toString();
         return confirmationCode;
     }
+
+
 
 }

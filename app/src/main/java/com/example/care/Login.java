@@ -128,7 +128,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         if(guestCheck.isChecked()) {
                             if((Boolean) document.getData().get("guest")) {
-                                GuestAccount g = new GuestAccount((String) document.getData().get("email"), (String) document.getData().get("password"), (String) document.getData().get("name"), (String) document.getData().get("phone"));
+                                GuestAccount g = new GuestAccount((String) document.getData().get("email"), (String) document.getData().get("password"), (String) document.getData().get("name"), (String) document.getData().get("phone"), (ArrayList<HashMap<String, String>>) document.getData().get("appointments"));
                                 if (g.getPassword().equals(password)) {
                                     userModel.makeToast("Login Successful!");
 
@@ -182,7 +182,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         business.setCompanyName((String) document.getData().get("companyName"));
                         business.setOfficers((ArrayList<String>) document.get("officers"));
-                        Log.d(TAG, "Officers in class" + business.getOfficers());
+                        business.setAppointments((ArrayList<HashMap<String, String>>) document.get("appointments"));
 
                         Intent intent = new Intent(Login.this, BusinessHome.class);
                         intent.putExtra("BusinessAcc", businessAccount);
