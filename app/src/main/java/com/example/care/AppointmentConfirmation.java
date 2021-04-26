@@ -27,8 +27,6 @@ public class AppointmentConfirmation extends AppCompatActivity {
         userModel = new UserModel(this);
 
         userModel.hideStatusBar();
-        String organization = getIntent().getExtras().getString("organization");
-
 
         if (getIntent().hasExtra("date")){
             TextView confirmationDateTv = (TextView) findViewById(R.id.confirmationDateTv);
@@ -46,8 +44,12 @@ public class AppointmentConfirmation extends AppCompatActivity {
             confirmCodeTv.setText(text);
         }
 
-        //send appointment data {organization: ? , data: ?, time: ?, confirmation: ?} to Google fireStore as Hashmap
+        //send appointment data {organization: ? , date: ?, time: ?, confirmationCode: ?} to Google fireStore as Hashmap
         //??
+        String organization = getIntent().getExtras().getString("organization");
+        String date = getIntent().getExtras().getString("date");
+        String time = getIntent().getExtras().getString("time");
+        String confirmationCode = getIntent().getExtras().getString("confirmationCode");
 
        Button guestHomeBtn = (Button) findViewById(R.id.guestHomeBtn);
 
