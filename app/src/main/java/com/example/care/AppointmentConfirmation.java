@@ -8,8 +8,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AppointmentConfirmation extends AppCompatActivity {
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+public class AppointmentConfirmation extends AppCompatActivity {
+    FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+    CollectionReference businessesCollection = rootRef.collection("Businesses");
     private GuestAccount guest;
 
     @Override
@@ -18,17 +22,27 @@ public class AppointmentConfirmation extends AppCompatActivity {
         setContentView(R.layout.activity_appointment_confirmation);
 
         guest = getIntent().getExtras().getParcelable("User");
+        String organization = getIntent().getExtras().getString("organization");
 
-        if (getIntent().hasExtra("com.example.care.Date")){
+        if (getIntent().hasExtra("date")){
             TextView confirmationDateTv = (TextView) findViewById(R.id.confirmationDateTv);
-            String text = getIntent().getExtras().getString("com.example.care.Date");
+            String text = getIntent().getExtras().getString("date");
             confirmationDateTv.setText(text);
         }
-        if (getIntent().hasExtra("com.example.care.Time")){
+        if (getIntent().hasExtra("time")){
             TextView confirmationTimeTv = (TextView) findViewById(R.id.confirmationTimeTv);
-            String text = getIntent().getExtras().getString("com.example.care.Time");
-            confirmationTimeTv.setText(text);
+            String text = getIntent().getExtras().getString("time");
+            confirmationTimeTv.setText(text + ":00");
         }
+        if (getIntent().hasExtra("confirmationCode")){
+            TextView confirmCodeTv = (TextView) findViewById(R.id.confirmCodeTv);
+            String text = getIntent().getExtras().getString("confirmationCode");
+            confirmCodeTv.setText(text);
+        }
+
+        //send appointment data {organization: ? , data: ?, time: ?, confirmation: ?} to Google fireStore as Hashmap
+        //?
+
        Button guestHomeBtn = (Button) findViewById(R.id.guestHomeBtn);
 
         guestHomeBtn.setOnClickListener(new View.OnClickListener() {

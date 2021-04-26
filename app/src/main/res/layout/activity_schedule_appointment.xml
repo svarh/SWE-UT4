@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -46,12 +47,11 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/my_button"
-                android:text="Select an organization"
+                android:text="SELECT AN ORGANIZATION"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
 
             <Spinner
                 android:id="@+id/orgSpinner"
@@ -62,16 +62,41 @@
                 android:textAlignment="center"
                 android:textColor="#FFFFFF" />
 
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/my_button"
+                android:text="SELECT AN OFFICER"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/officerSpinner"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:dropDownWidth="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+
+
             <Button
                 android:id="@+id/btnGoCalendar"
                 android:layout_width="match_parent"
-                android:background="@drawable/my_button"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
+                android:background="@drawable/my_button"
                 android:text="Select an available date"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -82,8 +107,8 @@
                 android:text=""
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/getTimeBtn"
@@ -93,99 +118,99 @@
                 android:background="@drawable/my_button"
                 android:text="Get Available Time"
                 android:textAlignment="center"
-                android:textColor="@color/cardview_light_background" />
+                android:textColor="@color/cardview_light_background"
+                android:textSize="18sp" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button1"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
                 android:text="9:00 AM"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorLink="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button2"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="10:00 AM" />
+                android:text="10:00 AM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button3"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="11:00 AM" />
+                android:text="11:00 AM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button4"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="12:00 PM" />
+                android:text="12:00 PM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button5"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="1:00 PM" />
+                android:text="1:00 PM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button6"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="2:00 PM" />
+                android:text="2:00 PM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button7"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="3:00 PM" />
+                android:text="3:00 PM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button8"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="4:00 PM" />
+                android:text="4:00 PM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
             <Button
-                android:visibility="gone"
                 android:id="@+id/button9"
-                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#4CAF50"
-                android:layout_height="wrap_content"
-                android:text="5:00 PM" />
-
+                android:text="5:00 PM"
+                android:textColor="#FFFFFF"
+                android:visibility="gone" />
 
 
         </LinearLayout>
