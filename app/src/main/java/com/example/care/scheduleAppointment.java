@@ -46,7 +46,7 @@ public class scheduleAppointment extends AppCompatActivity {
         userModel = new UserModel(this);
         userModel.hideStatusBar();
 
-        //create organization spinner/drop down menu from organizations array
+        //create organization spinner/drop down menu from organizations an array
         Spinner orgSpinner = (Spinner) findViewById(R.id.orgSpinner);
         List<String> organizations = new ArrayList<>();
 

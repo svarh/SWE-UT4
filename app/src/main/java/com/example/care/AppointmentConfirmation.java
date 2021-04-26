@@ -47,7 +47,7 @@ public class AppointmentConfirmation extends AppCompatActivity {
         }
 
         //send appointment data {organization: ? , data: ?, time: ?, confirmation: ?} to Google fireStore as Hashmap
-        //?
+        //??
 
        Button guestHomeBtn = (Button) findViewById(R.id.guestHomeBtn);
 
