@@ -231,4 +231,17 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundRectangle1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="300dp"
+        android:backgroundTint="@color/button_color"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/imgShield" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

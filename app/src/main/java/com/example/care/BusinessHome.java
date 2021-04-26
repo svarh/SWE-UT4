@@ -17,6 +17,8 @@ public class BusinessHome extends Activity implements View.OnClickListener {
     private LinearLayout btnManageOfficers = null;
     private LinearLayout btnCalendar = null;
 
+    private Button logoutButton;
+
    private BusinessAccount businessAccount;
    private Business business;
    private UserModel userModel;
@@ -37,7 +39,10 @@ public class BusinessHome extends Activity implements View.OnClickListener {
             case R.id.btnBusinessCheckIn:
                 checkInActivity(); // Check in guest
                 break;
-
+            case R.id.btnLogout:
+                Intent i = new Intent(this, Login.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
         }
     }
     // This method initializes all the needed things
@@ -55,6 +60,8 @@ public class BusinessHome extends Activity implements View.OnClickListener {
         this.btnCalendar.setOnClickListener(this);
         this.btnCheckin = findViewById(R.id.btnBusinessCheckIn);
         this.btnCheckin.setOnClickListener(this);
+        logoutButton = findViewById(R.id.btnLogout);
+        logoutButton.setOnClickListener(this);
 
     }
     @Override
