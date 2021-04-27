@@ -28,16 +28,74 @@
     <CalendarView
         android:id="@+id/guestCalendar"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:layout_below="@id/tvCalendar"
         android:layout_marginTop="30dp"
         ></CalendarView>
+
+    <RelativeLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/guestCalendar">
+
+        <TextView
+            android:id="@+id/tvOrg"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:text="Organization:"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvOfficer"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvOrg"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:text="Officer:"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvOrg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:text="Time:"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tvConfirmation"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvTime"
+            android:layout_below="@id/tvOfficer"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:text="Confirmation:"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            ></TextView>
+
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btnAccountHome"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/guestCalendar"
+        android:layout_below="@+id/infoLayout"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:background="@color/button_color"
         android:text="@string/account_home"
